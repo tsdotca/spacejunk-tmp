@@ -6,7 +6,6 @@ using UnityEngine;
 namespace SpaceJunk.Core
 {
 
-
     /// <summary>
     /// Initialises the GameManager from the main menu scene.
     /// </summary>
