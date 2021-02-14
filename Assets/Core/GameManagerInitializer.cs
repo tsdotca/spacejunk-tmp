@@ -11,11 +11,13 @@ namespace SpaceJunk.Core
     /// </summary>
     public class GameManagerInitializer : MonoBehaviour
     {
+        public SpaceJunk.UI.MainMenuController MMC;
 
         void Start()
         {
             GameManager.CreateFirstInstance();
             GameManager.LoadDefaults();
+            MMC.DebugDisable();
         }
     }
 

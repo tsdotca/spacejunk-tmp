@@ -1,13 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+
 using UnityEngine;
+using UnityEngine.UI;
+
+using SpaceJunk.Core;
 
 namespace SpaceJunk.UI
 {
 
     public class MainMenuController : MonoBehaviour
     {
+        public Canvas newGameCanvas;
+
+        public Selectable continueButton;
+        public Selectable optionsButton;
+
         [Flags]
         public enum OptionalButtons
         {
@@ -18,6 +27,12 @@ namespace SpaceJunk.UI
 
         public OptionalButtons enabledButtons = OptionalButtons.None;
 
+        public void DebugDisable()
+        {
+            continueButton.interactable = false;
+            optionsButton.interactable = false;
+        }
+
         public void OnContinuePress()
         {
             print("i am bender please insert girder");
@@ -25,7 +40,7 @@ namespace SpaceJunk.UI
 
         public void OnNewGamePress()
         {
-            print("hooray you want a new game");
+            GameManager.ChangeToScene("SolarSystem");
         }
 
         public void OnLoadGamePress()

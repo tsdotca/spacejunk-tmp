@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using SpaceJunk.Model;
 
 
 namespace SpaceJunk.Core
 {
+    public class SaveGame
+    {
+        public string name = "<save game>";
+    }
 
-    public class GameManager : MonoBehaviour
+    /// <summary>
+    /// here is the gross god class until things can be refactored
+    /// </summary>
+    public class GameManager
     {
         private static GameManager _instance;
         private static PlayerInfo _playerInfo;
+        //private static List<SaveGame> _saveGames;
 
         public static void CreateFirstInstance()
         {
@@ -22,7 +31,7 @@ namespace SpaceJunk.Core
 
         public static void CreateInstance()
         {
-            if (!_instance)
+            if (_instance == null)
             {
                 _instance = new GameManager();
             }
@@ -32,24 +41,23 @@ namespace SpaceJunk.Core
         {
             Reset();
             // open universal preferences
-            // load save files and stats
+            LoadSaveGames();
         }
 
-        protected static void Reset()
+        public static void LoadSaveGames()
         {
 
         }
 
-        // Start is called before the first frame update
-        void Start()
+        public static void Reset()
         {
-
+            _playerInfo = new PlayerInfo();
+            //_saveGames = new List<SaveGame>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public static void ChangeToScene(string sceneName)
         {
-
+            SceneManager.LoadScene(sceneName);
         }
     }
 
