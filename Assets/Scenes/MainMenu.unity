@@ -238,9 +238,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 46.18775
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 256
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -322,6 +322,16 @@ PrefabInstance:
         type: 3}
       propertyPath: theThing
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588212969149138208, guid: e3121316a8c484b4abc8fc7acc59a6a8,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1398037499}
+    - target: {fileID: 3588212969149138208, guid: e3121316a8c484b4abc8fc7acc59a6a8,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3588212969149138209, guid: e3121316a8c484b4abc8fc7acc59a6a8,
         type: 3}

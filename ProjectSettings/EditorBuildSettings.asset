@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/OmniaticIntro.unity
+    guid: a67a93e5b5a0b5d408fac4fee0eed197
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4a812e5c7fe666d4ea350dd465345857
+  - enabled: 1
+    path: Assets/Scenes/SolarSystem.unity
+    guid: ede76dc5a57bc924d9f77ebf4daf8dfe
+  - enabled: 1
+    path: Assets/Scenes/PlanetaryHarvest.unity
+    guid: 6ecbdcce2d2f6bb4f95c87278bda63c9
   m_configObjects: {}
