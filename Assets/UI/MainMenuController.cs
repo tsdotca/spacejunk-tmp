@@ -1,12 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace SpaceJunk.UI
 {
 
-    public class MainMenuResponder : MonoBehaviour
+    public class MainMenuController : MonoBehaviour
     {
+        [Flags]
+        public enum OptionalButtons
+        {
+            None,
+            Continue,
+            Options,
+        }
+
+        public OptionalButtons enabledButtons = OptionalButtons.None;
+
         public void OnContinuePress()
         {
             print("i am bender please insert girder");
