@@ -20,8 +20,14 @@ namespace SpaceJunk.Core
     public class GameManager
     {
         private static GameManager _instance;
-        private static PlayerInfo _playerInfo;
         //private static List<SaveGame> _saveGames;
+
+        // TODO: cleanup
+        public GameManager GetInstance()
+        {
+            CreateInstance();
+            return _instance;
+        }
 
         public static void CreateFirstInstance()
         {
@@ -51,7 +57,7 @@ namespace SpaceJunk.Core
 
         public static void Reset()
         {
-            _playerInfo = new PlayerInfo();
+            //_playerInfo = new PlayerInfo();
             //_saveGames = new List<SaveGame>();
         }
 
