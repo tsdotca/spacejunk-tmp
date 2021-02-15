@@ -12,7 +12,7 @@ namespace SpaceJunk.UI
 
     public class MainMenuController : MonoBehaviour
     {
-        public Canvas newGameCanvas;
+        public GameObject newGameDialog;
 
         public Selectable continueButton;
         public Selectable optionsButton;
@@ -27,36 +27,59 @@ namespace SpaceJunk.UI
 
         public OptionalButtons enabledButtons = OptionalButtons.None;
 
+        public void Start()
+        {
+            newGameDialog.SetActive(false);
+        }
+
         public void DebugDisable()
         {
             continueButton.interactable = false;
             optionsButton.interactable = false;
         }
 
-        public void OnContinuePress()
+        #region Main menu handlers
+
+        public void OnContinueGame()
         {
             print("i am bender please insert girder");
         }
 
-        public void OnNewGamePress()
+        public void OnNewGame()
         {
-            GameManager.ChangeToScene("SolarSystem");
+            newGameDialog.SetActive(true);
         }
 
-        public void OnLoadGamePress()
+        public void OnLoadGame()
         {
             print("now you want to LOAD a GAME?");
         }
 
-        public void OnOptionsPress()
+        public void OnOptions()
         {
         }
 
-        public void OnQuitPress()
+        public void OnQuitGame()
         {
             Debug.Log("goodbye");
             Application.Quit();
         }
+
+        #endregion
+
+        #region New game dialog handlers
+
+        public void OnNewGameBack()
+        {
+            newGameDialog.SetActive(false);
+        }
+
+        public void OnStartGame()
+        {
+            GameManager.ChangeToScene("SolarSystem");
+        }
+
+        #endregion
     }
 
 }
