@@ -489,7 +489,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 255b5d16b641d654382edc589585dee0,
+      objectReference: {fileID: 21300000, guid: 5ea168de8dafc8f49b488a14bb55fcba,
         type: 3}
     - target: {fileID: 1025740386800692204, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 536335710}
   - component: {fileID: 536335709}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TopMenuBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
