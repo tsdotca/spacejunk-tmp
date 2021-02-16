@@ -14,10 +14,16 @@ namespace SpaceJunk.Model
         }
     }
 
-    public class Offset : Object
+    public class Offset
     {
         public int x;
         public int y;
+
+        public Offset(int x_, int y_)
+        {
+            this.x = x_;
+            this.y = y_;
+        }
     }
 
     /// <summary>

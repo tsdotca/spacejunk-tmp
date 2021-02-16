@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+using SpaceJunk.Model;
 
 public class TestSolarSystem : MonoBehaviour
 {
@@ -12,7 +12,6 @@ public class TestSolarSystem : MonoBehaviour
 
     const int planet_n = 8;
 
-    // Start is called before the first frame update
     void Start()
     {
         // todo generate root
@@ -26,9 +25,10 @@ public class TestSolarSystem : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public Offset GenerateSystemOffset()
     {
-
+        int x = Random.Range(-(solar_w / 2), solar_w / 2);
+        int y = Random.Range(-(solar_h / 2), solar_h / 2);
+        return new Offset(x, y);
     }
 }
