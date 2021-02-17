@@ -17,12 +17,19 @@ public class TestSolarSystem : MonoBehaviour
         // todo generate root
         for (int i = 0; i < planet_n; ++i)
         {
-            int x = Random.Range(-(solar_w / 2), solar_w / 2);
-            int y = Random.Range(-(solar_h / 2), solar_h / 2);
-
             var clone = Object.Instantiate(planetPrefab, root.transform);
-            clone.transform.position += new Vector3(x, y, 1);
+            clone.transform.position += GenerateRandomObjectPosition(solar_w, solar_h);
         }
+    }
+
+    /// <summary>
+    /// Generates a random Vector3 bounded by w, h, z=1
+    /// </summary>
+    public static Vector3 GenerateRandomObjectPosition(int w, int h)
+    {
+        int x = Random.Range(-(solar_w / 2), solar_w / 2);
+        int y = Random.Range(-(solar_h / 2), solar_h / 2);
+        return new Vector3(x, y, 1);
     }
 
     public Offset GenerateSystemOffset()

@@ -19,6 +19,13 @@ namespace SpaceJunk.Core
     /// </summary>
     public class GameManager
     {
+        /// <summary>
+        /// The name of the tag used for GameObjects in the UI that are selectable by the SelectionManager class.
+        /// 
+        /// If you change the name of the layer in the Tags and Layers manager, you need to update it here.
+        /// </summary>
+        public const string SELECT_TAG_NAME = "Selectable";
+
         private static GameManager _instance;
         //private static List<SaveGame> _saveGames;
 

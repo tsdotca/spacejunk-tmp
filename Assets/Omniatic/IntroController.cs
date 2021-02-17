@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class IntroTransition : MonoBehaviour
+namespace Omniatic
+{
+
+
+public class IntroController : MonoBehaviour
 {
     public float introDelaySeconds = 2f;
 
@@ -14,10 +19,12 @@ public class IntroTransition : MonoBehaviour
         StartCoroutine(LogoFadeout());
     }
 
-    void Update()
+    /// <summary>
+    /// Event handler for when the user wants to skip the intro.
+    /// </summary>
+    public void OnForcedTransition(InputAction.CallbackContext context)
     {
-        if (Input.GetKey(KeyCode.Escape))
-            Transition();
+
     }
 
     IEnumerator LogoFadeout()
@@ -31,4 +38,6 @@ public class IntroTransition : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+}
+
 }
