@@ -10,9 +10,6 @@ using UnityEngine;
 /// </summary>
 public class SelectionController : MonoBehaviour
 {
-    public GameObject currentSelected = null;
-    public GameObject targetWidget = null;
-
     // Start is called before the first frame update
     void Start()
     {

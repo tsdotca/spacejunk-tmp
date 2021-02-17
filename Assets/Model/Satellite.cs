@@ -34,19 +34,9 @@ namespace SpaceJunk.Model
     /// </remarks>
     public class Satellite : Object
     {
-        /// <summary>
-        /// The human-readable name of this celestial body.
-        /// </summary>
-        public string hrname { get; private set; }
-
-        public List<Satellite> children { get; private set; }
+        public List<Satellite> children;
 
         public Offset offset;
-
-        public Satellite(string name_)
-        {
-            name = name_;
-        }
     }
 
 }

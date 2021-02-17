@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlanetComponent : MonoBehaviour
+using SpaceJunk.Model;
+
+namespace SpaceJunk.SolarSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlanetComponent : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Satellite satellite;
     }
 }
