@@ -3,6 +3,9 @@
 namespace SpaceJunk.Model
 {
 
+    /// <summary>
+    /// This class represents a given state of the player's progress: health, resources, etc.
+    /// </summary>
     public class PlayerInfo : Object
     {
         public string Name = "unnamed player";

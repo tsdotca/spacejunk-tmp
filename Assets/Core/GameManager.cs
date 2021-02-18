@@ -26,11 +26,14 @@ namespace SpaceJunk.Core
         /// </summary>
         public const string SELECT_TAG_NAME = "Selectable";
 
-        private static GameManager _instance;
+        protected static GameManager _instance;
         //private static List<SaveGame> _saveGames;
 
+        // TODO make protected and set up proper workflow
+        public GameState state;
+
         // TODO: cleanup
-        public GameManager GetInstance()
+        public static GameManager GetInstance()
         {
             CreateInstance();
             return _instance;

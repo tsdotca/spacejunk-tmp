@@ -10,6 +10,8 @@ namespace SpaceJunk.UI
 
     public class SidePanelController : MonoBehaviour
     {
+        public GameObject sidePanel;
+
         #region UI components
         // Computed reference to various UI components
         // TODO: possible template for this kind of shit?
@@ -18,38 +20,18 @@ namespace SpaceJunk.UI
         protected GameObject cancelAction;
         protected GameObject affirmativeAction;
 
-        protected GameObject _sidePanel;
-        public GameObject sidePanel
+        public void RefreshSidePanel()
         {
-            get { return _sidePanel; }
-
-            protected set
-            {
-                this.clockText = GetChildWithName(value, "Clock");  // TODO a special object, not just text label
-                this.descriptionLabelText = GetChildWithName(value, "SelectedDescriptionText");
-                this.cancelAction = GetChildWithName(value, "CancelAction");
-                this.affirmativeAction = GetChildWithName(value, "AffirmativeAction");
-            }
+            this.clockText = GetChildWithName(sidePanel, "Clock");  // TODO a special object, not just text label
+            this.descriptionLabelText = GetChildWithName(sidePanel, "SelectedDescriptionText");
+            this.cancelAction = GetChildWithName(sidePanel, "CancelAction");
+            this.affirmativeAction = GetChildWithName(sidePanel, "AffirmativeAction");
         }
         #endregion
 
-        // TODO: refactor into a utility method and/or determine better strategy
-        public static GameObject GetChildWithName(GameObject obj, string name)
+        public void Start()
         {
-            Transform trans = obj.transform;
-            Transform childTrans = trans.Find(name);
-            if (childTrans != null)
-            {
-                return childTrans.gameObject;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        void Start()
-        {
+            RefreshSidePanel();
             sidePanel.SetActive(false);
         }
 
@@ -68,6 +50,13 @@ namespace SpaceJunk.UI
             sidePanel.SetActive(false);
         }
 
+        // TODO: refactor into a utility method and/or determine better strategy
+        public static GameObject GetChildWithName(GameObject obj, string name)
+        {
+            Transform trans = obj.transform;
+            Transform childTrans = trans.Find(name);
+            return childTrans ? childTrans.gameObject : null;
+        }
     }
 
 }

@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-using UnityEngine;
-
-namespace SpaceJunk.Model
+﻿namespace SpaceJunk.Model
 {
     public class GameState
     {
-        public ulong gameTime { get; private set; }
+        public ulong gameTime = 0;
 
-        protected PlayerInfo _playerInfo;
-        protected Satellite _rootSystem;
+        public PlayerInfo playerInfo;
+
+        // Tree of celestial shit
+        // TODO convert to a more efficient data structure depending on use case
+        public Satellite _rootSystem;
     }
 
 }

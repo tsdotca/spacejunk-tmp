@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
+using SpaceJunk.Core;
 using SpaceJunk.Model;
 
 public class TestSolarSystem : MonoBehaviour
@@ -15,18 +16,9 @@ public class TestSolarSystem : MonoBehaviour
 
     void Start()
     {
-        // TODO need a better way of determining sanity checks
-        Assert.IsNotNull(planetPrefab.GetComponent<Satellite>());
-
         // TODO generate the root object; it is assumed to exist within the scene
 
-        for (int i = 0; i < planet_n; ++i)
-        {
-            var clone = Object.Instantiate(planetPrefab, root.transform);
-            clone.transform.position += GenerateRandomObjectPosition(solar_w, solar_h);
-            var sat = clone.GetComponent<Satellite>();
-            sat.name = GenerateRandomPlanetName();
-        }
+        GameManager.GetInstance().state = GenerateRandomGameState();
     }
 
     /// <summary>
@@ -44,6 +36,28 @@ public class TestSolarSystem : MonoBehaviour
         int x = Random.Range(-(w / 2), w / 2);
         int y = Random.Range(-(h / 2), h / 2);
         return new Offset(x, y);
+    }
+
+    public static GameState GenerateRandomGameState()
+    {
+        GameState state = new GameState();
+        var rootSystem = state._rootSystem;
+
+        for (int i = 0; i < planet_n; ++i)
+        {
+            var rndplanet = GenerateRandomPlanet();
+            rootSystem.children.Add(rndplanet);
+        }
+
+        return state;
+    }
+
+    public static Satellite GenerateRandomPlanet()
+    {
+        var sat = Object.Instantiate();
+        sat.name = GenerateRandomPlanetName();
+        sat.orbit.offset = GenerateSystemOffset(64, 64); // TODO hardcoded
+        return sat;
     }
 
     public static string GenerateRandomPlanetName()
