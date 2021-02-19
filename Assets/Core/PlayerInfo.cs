@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace SpaceJunk.Model
+namespace SpaceJunk.Core
 {
 
     /// <summary>
     /// This class represents a given state of the player's progress: health, resources, etc.
     /// </summary>
-    public class PlayerInfo : Object
+    public class PlayerInfo : MonoBehaviour
     {
         public string Name = "unnamed player";
         

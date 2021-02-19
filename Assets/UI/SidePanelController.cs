@@ -29,8 +29,9 @@ namespace SpaceJunk.UI
         }
         #endregion
 
-        public void Start()
+        public void SetSidePanel(GameObject sidePanel)
         {
+            this.sidePanel = sidePanel;
             RefreshSidePanel();
             sidePanel.SetActive(false);
         }

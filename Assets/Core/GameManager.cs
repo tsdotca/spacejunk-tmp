@@ -1,11 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-using SpaceJunk.Model;
-
+﻿using UnityEngine.SceneManagement;
 
 namespace SpaceJunk.Core
 {
@@ -74,6 +67,16 @@ namespace SpaceJunk.Core
         public static void ChangeToScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName);
+        }
+
+        /// <summary>
+        /// This returns the English name of the solar system that the game takes place in.
+        /// 
+        /// Currently hard-coded, but may be configurable or randomly generated later on.
+        /// </summary>
+        public static string GetSystemPlotName()
+        {
+            return "Pytheas Majoris";
         }
     }
 

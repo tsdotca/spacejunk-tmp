@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-using SpaceJunk.Model;
+using SpaceJunk.Core;
 
 namespace SpaceJunk.SolarSystem
 {

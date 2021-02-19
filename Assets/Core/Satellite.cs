@@ -2,9 +2,9 @@
 
 using UnityEngine;
 
-namespace SpaceJunk.Model
+namespace SpaceJunk.Core
 {
-    public class Offset : MonoB
+    public class Offset
     {
         public int x;
         public int y;
@@ -15,7 +15,7 @@ namespace SpaceJunk.Model
             this.y = y;
         }
     }
-    public class Orbit : MonoBehaviour
+    public class Orbit
     {
         enum Type
         {
@@ -23,7 +23,7 @@ namespace SpaceJunk.Model
             Elliptical,
         }
 
-        public Offset offset;
+        public Offset offset = new Offset(0, 0);
     }
 
     /// <summary>
@@ -32,9 +32,17 @@ namespace SpaceJunk.Model
     /// <remarks>
     /// Satellites have an Orbit and an offset. The Orbit determines if and how the body moves relative to its parent Satellite. The offset affects where the body is placed either in a fixed position relative to its parent or along its Orbit.
     /// </remarks>
-    public class Satellite : MonoBehaviour
+    public class Satellite
     {
+        public string name;
         public List<Satellite> children;
         public Orbit orbit;
+
+        public Satellite(string name)
+        {
+            this.name = name;
+            this.children = new List<Satellite>(8);
+            this.orbit = new Orbit();
+        }
     }
 }

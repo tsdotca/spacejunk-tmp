@@ -1,4 +1,6 @@
-﻿namespace SpaceJunk.Model
+﻿using UnityEngine;
+
+namespace SpaceJunk.Core
 {
     public class GameState
     {
@@ -10,5 +12,4 @@
         // TODO convert to a more efficient data structure depending on use case
         public Satellite _rootSystem;
     }
-
 }
