@@ -2,7 +2,6 @@
 
 namespace SpaceJunk.Core
 {
-
     /// <summary>
     /// This class represents a given state of the player's progress: health, resources, etc.
     /// </summary>

@@ -68,16 +68,14 @@ namespace SpaceJunk.SolarSystem
         public Satellite GenerateRandomPlanet()
         {
             var sat = new Satellite("new test planet");
-            if (sat == null)
-                Debug.Log("sat is null");
             sat.orbit.offset = GenerateSystemOffset(64, 64); // TODO hardcoded
             return sat;
         }
 
         public static string GenerateRandomPlanetName()
         {
-            string[] dummyNames = { "foo", "bar", "baz" };
             // TODO this is absolute hot garbage
+            string[] dummyNames = { "foo", "bar", "baz" };
             var randomNameIndex = Random.Range(0, dummyNames.Length);
             var randomName = dummyNames[randomNameIndex];
             return System.String.Format("{0}-{1}", randomName, (int)Random.Range(0, 65535));

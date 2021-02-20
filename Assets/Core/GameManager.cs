@@ -60,8 +60,6 @@ namespace SpaceJunk.Core
 
         public static void Reset()
         {
-            //_playerInfo = new PlayerInfo();
-            //_saveGames = new List<SaveGame>();
         }
 
         public static void ChangeToScene(string sceneName)
