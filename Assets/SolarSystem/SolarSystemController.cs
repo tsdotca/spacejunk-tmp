@@ -18,6 +18,9 @@ namespace SpaceJunk.SolarSystem
 
         public GameObject rootSat;  // TODO better name
 
+        // hooked up in the editor because aarrarhghghh
+        public Sprite rootSprite;
+
         public void TestHookThing(Satellite root)
         {
             rootSat = GenerateSolarSystemFromPlanetRoot(root);
@@ -27,12 +30,16 @@ namespace SpaceJunk.SolarSystem
         //      of the Satellite class, but the structure is fixed upon generation
         public GameObject GenerateSolarSystemFromPlanetRoot(Satellite rootSatellite)
         {
-            return GenerateSolarSystemHelper(null, rootSatellite);
+            var root = GenerateSolarSystemHelper(null, rootSatellite);
+            root.GetComponent<SpriteRenderer>().sprite = rootSprite;
+            return root;
         }
 
-        protected GameObject GenerateSolarSystemHelper(GameObject __parent, Satellite parentSat)
+        protected GameObject GenerateSolarSystemHelper(GameObject parent, Satellite parentSat)
         {
             var newobj = Object.Instantiate(satellitePrefab);
+            newobj.name = "Generated Satellite";
+            newobj.GetComponent<Transform>().Translate(parentSat.orbit.offset.x, parentSat.orbit.offset.y, 0f);
             var satComponent = newobj.GetComponent<PlanetComponent>();
             var childCount = parentSat.GetChildCount();
 
