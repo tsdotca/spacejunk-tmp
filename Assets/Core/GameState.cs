@@ -10,6 +10,6 @@ namespace SpaceJunk.Core
 
         // Tree of celestial shit
         // TODO convert to a more efficient data structure depending on use case
-        public Satellite _rootSystem;
+        public Satellite rootSystem;
     }
 }

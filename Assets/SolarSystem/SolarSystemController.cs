@@ -16,23 +16,21 @@ namespace SpaceJunk.SolarSystem
         /// </summary>
         public GameObject satellitePrefab;
 
-        public GameObject rootSatellite;  // TODO better name
+        public GameObject rootSat;  // TODO better name
 
         public void TestHookThing(Satellite root)
         {
-            rootSatellite = GenerateSolarSystemFromPlanetRoot(root);
+            rootSat = GenerateSolarSystemFromPlanetRoot(root);
         }
 
         // XXX: currently properties are dynamically accessed via indirection
         //      of the Satellite class, but the structure is fixed upon generation
         public GameObject GenerateSolarSystemFromPlanetRoot(Satellite rootSatellite)
         {
-            var root = Object.Instantiate(satellitePrefab);
-            
-            return root;
+            return GenerateSolarSystemHelper(null, rootSatellite);
         }
 
-        protected GameObject GenerateSolarSystemHelper(GameObject parent, Satellite parentSat)
+        protected GameObject GenerateSolarSystemHelper(GameObject __parent, Satellite parentSat)
         {
             var newobj = Object.Instantiate(satellitePrefab);
             var satComponent = newobj.GetComponent<PlanetComponent>();

@@ -10,16 +10,23 @@ namespace SpaceJunk.SolarSystem
         public GameObject root;
         public GameObject planetPrefab;
 
-        public const int solar_w = 64;
-        public const int solar_h = 64;
+        public GameObject SSC;
 
-        const int planet_n = 8;
+        public const int kSolarWidth = 64;
+        public const int kSolarHeight = 64;
+
+        const int kPlanetCount = 8;
 
         void Start()
         {
-            // TODO generate the root object; it is assumed to exist within the scene
+            Debug.Log("generating a random state");
+            var rndState = GenerateRandomGameState();
 
-            GameManager.GetInstance().state = GenerateRandomGameState();
+            GameManager.GetInstance().state = rndState;
+
+            Debug.Log("populating the janky GameObject system...");
+            var comp = SSC.GetComponent<SolarSystemController>();
+            comp.TestHookThing(rndState.rootSystem);
         }
 
         /// <summary>
@@ -39,36 +46,37 @@ namespace SpaceJunk.SolarSystem
             return new Offset(x, y);
         }
 
-        public GameState GenerateRandomGameState()
+        public static GameState GenerateRandomGameState()
         {
             GameState state = new GameState();
-
-            var rootSystem = state._rootSystem;
-            rootSystem = GenerateRootSystem();
+            var rootSystem = GenerateRootSystem();
             GenerateSolarSystem(rootSystem);
+            state.rootSystem = rootSystem;
 
             return state;
         }
 
         public static Satellite GenerateRootSystem()
         {
+            Debug.Log("generating root system");
             return new Satellite(GameManager.GetSystemPlotName());
         }
 
         // TODO: remove in-out param
-        public void GenerateSolarSystem(Satellite root)
+        public static void GenerateSolarSystem(Satellite root)
         {
-            for (int i = 0; i < planet_n; ++i)
+            for (int i = 0; i < kPlanetCount; ++i)
             {
                 var rndplanet = GenerateRandomPlanet();
                 root.children.Add(rndplanet);
+                Debug.Log("generated a new planet: " + rndplanet.name);
             }
         }
 
-        public Satellite GenerateRandomPlanet()
+        public static Satellite GenerateRandomPlanet()
         {
             var sat = new Satellite("new test planet");
-            sat.orbit.offset = GenerateSystemOffset(64, 64); // TODO hardcoded
+            sat.orbit.offset = GenerateSystemOffset(kSolarWidth, kSolarHeight);
             return sat;
         }
 

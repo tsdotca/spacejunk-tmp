@@ -49,7 +49,7 @@ namespace SpaceJunk.Core
         public static void LoadDefaults()
         {
             Reset();
-            // open universal preferences
+            // TODO open universal preferences
             LoadSaveGames();
         }
 

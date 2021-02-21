@@ -824,8 +824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSelected: {fileID: 0}
   sidePanelController: {fileID: 640289344}
-  satellitePrefab: {fileID: 0}
-  rootSatellite: {fileID: 0}
+  satellitePrefab: {fileID: 6920909261205443061, guid: 31306a508336af74fb810292a2c09817,
+    type: 3}
+  rootSat: {fileID: 0}
 --- !u!1 &892433151
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +873,7 @@ MonoBehaviour:
   root: {fileID: 1123784013}
   planetPrefab: {fileID: 6920909261205443061, guid: 31306a508336af74fb810292a2c09817,
     type: 3}
+  SSC: {fileID: 861959938}
 --- !u!114 &1060413938
 MonoBehaviour:
   m_ObjectHideFlags: 0
