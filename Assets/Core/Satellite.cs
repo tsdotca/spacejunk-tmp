@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using UnityEngine;
-
 namespace SpaceJunk.Core
 {
     public class Offset
@@ -15,14 +13,16 @@ namespace SpaceJunk.Core
             this.y = y;
         }
     }
+
     public class Orbit
     {
-        enum Type
+        public enum OrbitType
         {
             Fixed,
             Elliptical,
         }
 
+        public OrbitType orbitType = OrbitType.Fixed;
         public Offset offset = new Offset(0, 0);
     }
 
@@ -43,6 +43,12 @@ namespace SpaceJunk.Core
             this.name = name;
             this.children = new List<Satellite>(8);
             this.orbit = new Orbit();
+        }
+
+        // TODO: readonly??? "is not valid for this item"
+        public int GetChildCount()
+        {
+            return this.children.Count;
         }
     }
 }
