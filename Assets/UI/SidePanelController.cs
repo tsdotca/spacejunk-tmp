@@ -36,11 +36,6 @@ namespace SpaceJunk.UI
 
         void SelectObject(GameObject o)
         {
-            if (o.tag != GameManager.SELECT_TAG_NAME)
-            {
-                Debug.LogWarning("Trying to select an object that isn't tagged as being selectable!");
-            }
-
             contextInfoPanel.SetActive(true);
         }
 

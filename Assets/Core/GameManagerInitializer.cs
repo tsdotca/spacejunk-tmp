@@ -16,7 +16,7 @@ namespace SpaceJunk.Core
         void Start()
         {
             GameManager.CreateFirstInstance();
-            GameManager.LoadDefaults();
+            GameManager.GetInstance().LoadDefaults();
             MMC.DebugDisable();
         }
     }

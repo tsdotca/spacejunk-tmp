@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8014b9b47a50b4469460eed38db5b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 548193901}
   sidePanelController: {fileID: 950074572}
   satellitePrefab: {fileID: 6920909261205443061, guid: 31306a508336af74fb810292a2c09817,
     type: 3}

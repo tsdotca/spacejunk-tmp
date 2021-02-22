@@ -7,6 +7,7 @@ namespace SpaceJunk.SolarSystem
 {
     public class SolarSystemController : MonoBehaviour
     {
+        public GameObject mainCamera;
         public GameObject sidePanelController;
 
         public GameObject satellitePrefab;
@@ -50,15 +51,35 @@ namespace SpaceJunk.SolarSystem
             return newobj;
         }
 
-        // this needs to be moved to a sane place
         public void OnPrimaryClick(InputAction.CallbackContext context)
         {
-            var hit = Physics2D.Raycast(transform.position, -Vector2.up);
+            Debug.Log("you click'd on " + Mouse.current.position);
+            //Debug.Log("world coords: " + this.mainCamera.ScreenToWorldPoint(Mouse.current.position));
+        }
 
-            if (hit.collider)
+        protected GameObject FindPlanetAtPoint(int x, int y)
+        {
+            var contactFilter = new ContactFilter2D();
+            contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
+
+            // FIXME this is kind of stupid and broken:
+            //     The array to receive results. The size of the array determines
+            //     the maximum number of results that can be returned.
+            // so need to figure out a better way, it would seem
+            const int result_limit_size = 4;
+            var results = new RaycastHit2D[result_limit_size];
+
+            if (Physics2D.Raycast(transform.position, -Vector2.up, contactFilter, results) is int numResults && 0 < numResults)
             {
-                Debug.Log("you clicked on something!");
+                if (1 < results.Length)
+                    Debug.LogWarning("more than one click result found; discarding");
+                var gameobj = results[0].collider.gameObject;
+                var sat = gameobj.GetComponent<PlanetComponent>().satellite;
+                Debug.Log("you clicked on " + sat.name);
+                return gameobj;
             }
+
+            return null;
         }
     }
 }

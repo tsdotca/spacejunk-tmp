@@ -12,13 +12,6 @@ namespace SpaceJunk.Core
     /// </summary>
     public class GameManager
     {
-        /// <summary>
-        /// The name of the tag used for GameObjects in the UI that are selectable by the SelectionManager class.
-        /// 
-        /// If you change the name of the layer in the Tags and Layers manager, you need to update it here.
-        /// </summary>
-        public const string SELECT_TAG_NAME = "Selectable";
-
         protected static GameManager _instance;
         //private static List<SaveGame> _saveGames;
 
@@ -35,7 +28,7 @@ namespace SpaceJunk.Core
         public static void CreateFirstInstance()
         {
             CreateInstance();
-            Reset();
+            _instance.Reset();
         }
 
         public static void CreateInstance()
@@ -46,7 +39,7 @@ namespace SpaceJunk.Core
             }
         }
 
-        public static void LoadDefaults()
+        public void LoadDefaults()
         {
             Reset();
             // TODO open universal preferences
@@ -58,11 +51,11 @@ namespace SpaceJunk.Core
 
         }
 
-        public static void Reset()
+        public void Reset()
         {
         }
 
-        public static void ChangeToScene(string sceneName)
+        public void ChangeToScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName);
         }
@@ -75,6 +68,11 @@ namespace SpaceJunk.Core
         public static string GetSystemPlotName()
         {
             return "Pytheas Majoris";
+        }
+
+        public static int GetSelectableLayerMask()
+        {
+            return 1 << 8;
         }
     }
 

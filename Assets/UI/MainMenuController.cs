@@ -76,7 +76,7 @@ namespace SpaceJunk.UI
 
         public void OnStartGame()
         {
-            GameManager.ChangeToScene("SolarSystem");
+            GameManager.GetInstance().ChangeToScene("SolarSystem");
         }
 
         #endregion
