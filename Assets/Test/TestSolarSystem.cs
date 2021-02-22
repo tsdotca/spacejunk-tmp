@@ -19,12 +19,9 @@ namespace SpaceJunk.SolarSystem
 
         void Start()
         {
-            Debug.Log("generating a random state");
             var rndState = GenerateRandomGameState();
 
             GameManager.GetInstance().state = rndState;
-
-            Debug.Log("populating the janky GameObject system...");
             var comp = SSC.GetComponent<SolarSystemController>();
             comp.TestHookThing(rndState.rootSystem);
         }
@@ -58,7 +55,6 @@ namespace SpaceJunk.SolarSystem
 
         public static Satellite GenerateRootSystem()
         {
-            Debug.Log("generating root system");
             return new Satellite(GameManager.GetSystemPlotName());
         }
 
@@ -69,7 +65,6 @@ namespace SpaceJunk.SolarSystem
             {
                 var rndplanet = GenerateRandomPlanet();
                 root.children.Add(rndplanet);
-                Debug.Log("generated a new planet: " + rndplanet.name);
             }
         }
 

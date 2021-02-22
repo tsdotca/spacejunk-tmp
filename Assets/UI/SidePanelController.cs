@@ -1,31 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 using SpaceJunk.Core;
 
 namespace SpaceJunk.UI
 {
-
     public class SidePanelController : MonoBehaviour
     {
         public GameObject sidePanel;
 
         #region UI components
-        // Computed reference to various UI components
-        // TODO: possible template for this kind of shit?
         protected GameObject clockText;
-        protected GameObject descriptionLabelText;
+
+        protected GameObject contextInfoPanel;
+        //protected GameObject descriptionLabelText;
+
+        protected GameObject mainActionButtonsPanel;
         protected GameObject cancelAction;
         protected GameObject affirmativeAction;
 
         public void RefreshSidePanel()
         {
-            this.clockText = GetChildWithName(sidePanel, "Clock");  // TODO a special object, not just text label
-            this.descriptionLabelText = GetChildWithName(sidePanel, "SelectedDescriptionText");
-            this.cancelAction = GetChildWithName(sidePanel, "CancelAction");
-            this.affirmativeAction = GetChildWithName(sidePanel, "AffirmativeAction");
+            this.clockText = GetChildWithName(sidePanel, "Clock");
+
+            this.contextInfoPanel = GetChildWithName(sidePanel, "ContextInfoPanel");
+            this.contextInfoPanel.SetActive(false);
+            //this.descriptionLabelText = GetChildWithName(this.contextInfoPanel, "SelectedDescriptionText");
+
+            this.mainActionButtonsPanel = GetChildWithName(sidePanel, "MainActionButtonsPanel");
+            this.cancelAction = GetChildWithName(this.mainActionButtonsPanel, "CancelAction");
+            this.affirmativeAction = GetChildWithName(this.mainActionButtonsPanel, "AffirmativeAction");
+            this.mainActionButtonsPanel.SetActive(false);
         }
         #endregion
 
@@ -33,7 +37,6 @@ namespace SpaceJunk.UI
         {
             this.sidePanel = sidePanel;
             RefreshSidePanel();
-            sidePanel.SetActive(false);
         }
 
         void SelectObject(GameObject o)
@@ -43,21 +46,34 @@ namespace SpaceJunk.UI
                 Debug.LogWarning("Trying to select an object that isn't tagged as being selectable!");
             }
 
-            sidePanel.SetActive(true);
+            contextInfoPanel.SetActive(true);
         }
 
         void ClearSelection()
         {
-            sidePanel.SetActive(false);
+            contextInfoPanel.SetActive(false);
         }
 
-        // TODO: refactor into a utility method and/or determine better strategy
+        /// <summary>
+        /// Like Transform.Find(), but does DFS on all children.
+        /// </summary>
         public static GameObject GetChildWithName(GameObject obj, string name)
         {
             Transform trans = obj.transform;
-            Transform childTrans = trans.Find(name);
-            return childTrans ? childTrans.gameObject : null;
+            var childTrans = trans.Find(name);
+            if (childTrans)
+                return childTrans.gameObject;
+            foreach (Transform child in trans)
+            {
+                childTrans = trans.Find(name);
+                if (childTrans)
+                    return childTrans.gameObject;
+                else if (GetChildWithName(child.gameObject, name) is var result && result)
+                    return result;
+                else
+                    continue;
+            }
+            return null;
         }
     }
-
 }
