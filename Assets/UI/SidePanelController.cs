@@ -4,11 +4,11 @@ using SpaceJunk.Core;
 
 namespace SpaceJunk.UI
 {
+    // FIXME: This class assumes that it is attached to the same UI canvas instance.
     public class SidePanelController : MonoBehaviour
     {
-        public GameObject sidePanel;
+        protected GameObject _sidebarPanel;
 
-        #region UI components
         protected GameObject clockText;
 
         protected GameObject contextInfoPanel;
@@ -20,23 +20,18 @@ namespace SpaceJunk.UI
 
         public void RefreshSidePanel()
         {
-            this.clockText = GetChildWithName(sidePanel, "Clock");
+            this._sidebarPanel = this.gameObject;  // FIXME!!!
 
-            this.contextInfoPanel = GetChildWithName(sidePanel, "ContextInfoPanel");
+            this.clockText = GetChildWithName(_sidebarPanel, "Clock");
+
+            this.contextInfoPanel = GetChildWithName(_sidebarPanel, "ContextInfoPanel");
             this.contextInfoPanel.SetActive(false);
             //this.descriptionLabelText = GetChildWithName(this.contextInfoPanel, "SelectedDescriptionText");
 
-            this.mainActionButtonsPanel = GetChildWithName(sidePanel, "MainActionButtonsPanel");
+            this.mainActionButtonsPanel = GetChildWithName(_sidebarPanel, "MainActionButtonsPanel");
             this.cancelAction = GetChildWithName(this.mainActionButtonsPanel, "CancelAction");
             this.affirmativeAction = GetChildWithName(this.mainActionButtonsPanel, "AffirmativeAction");
             this.mainActionButtonsPanel.SetActive(false);
-        }
-        #endregion
-
-        public void SetSidePanel(GameObject sidePanel)
-        {
-            this.sidePanel = sidePanel;
-            RefreshSidePanel();
         }
 
         void SelectObject(GameObject o)

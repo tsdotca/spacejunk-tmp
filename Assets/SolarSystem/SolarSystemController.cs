@@ -7,19 +7,18 @@ namespace SpaceJunk.SolarSystem
 {
     public class SolarSystemController : MonoBehaviour
     {
-        public GameObject currentSelected = null;
-        public GameObject sidePanelController = null;
+        public GameObject sidePanelController;
 
         public GameObject satellitePrefab;
+        public Sprite rootSprite;  // FIXME do we really have to hook this up in the editor?
 
-        public GameObject rootSat;  // TODO better name
-
-        // hooked up in the editor because aarrarhghghh
-        public Sprite rootSprite;
+        protected GameObject rootSat;  // TODO better name
+        protected GameObject currentSelected = null;
 
         public void TestHookThing(Satellite root)
         {
             rootSat = GenerateSolarSystemFromPlanetRoot(root);
+            sidePanelController.GetComponent<SpaceJunk.UI.SidePanelController>().RefreshSidePanel();
         }
 
         // XXX: currently properties are dynamically accessed via indirection

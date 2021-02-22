@@ -797,11 +797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8014b9b47a50b4469460eed38db5b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSelected: {fileID: 0}
-  sidePanelController: {fileID: 0}
+  sidePanelController: {fileID: 950074572}
   satellitePrefab: {fileID: 6920909261205443061, guid: 31306a508336af74fb810292a2c09817,
     type: 3}
-  rootSat: {fileID: 0}
   rootSprite: {fileID: 21300000, guid: 3753a32718e13ac45a1e0fa5ff2d7796, type: 3}
 --- !u!1001 &866035969
 PrefabInstance:
@@ -893,7 +891,7 @@ PrefabInstance:
     - target: {fileID: 4012938126112692323, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.6926305
+      value: -0.00030100928
       objectReference: {fileID: 0}
     - target: {fileID: 4012938126609456296, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
@@ -903,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 4012938126609456299, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
       propertyPath: m_Name
-      value: SidebarCanvas
+      value: SidebarCanvasAndController
       objectReference: {fileID: 0}
     - target: {fileID: 4012938126609456303, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
@@ -1110,6 +1108,24 @@ MonoBehaviour:
   planetPrefab: {fileID: 6920909261205443061, guid: 31306a508336af74fb810292a2c09817,
     type: 3}
   SSC: {fileID: 861959938}
+--- !u!1 &950074572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4012938126609456299, guid: 183c58d64170ef242aa03a2fc8666cd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 866035969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &950074573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950074572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c828d5665c2b61343a270a0ae68b1d7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1060413938
 MonoBehaviour:
   m_ObjectHideFlags: 0
