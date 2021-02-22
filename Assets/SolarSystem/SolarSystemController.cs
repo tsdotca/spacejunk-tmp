@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 using SpaceJunk.Core;
 
@@ -6,14 +7,9 @@ namespace SpaceJunk.SolarSystem
 {
     public class SolarSystemController : MonoBehaviour
     {
-        #region SelectionManager stuff
         public GameObject currentSelected = null;
         public GameObject sidePanelController = null;
-        #endregion
 
-        /// <summary>
-        /// Set in the editor.
-        /// </summary>
         public GameObject satellitePrefab;
 
         public GameObject rootSat;  // TODO better name
@@ -35,23 +31,35 @@ namespace SpaceJunk.SolarSystem
             return root;
         }
 
-        protected GameObject GenerateSolarSystemHelper(GameObject parent, Satellite parentSat)
+        protected GameObject GenerateSolarSystemHelper(GameObject parent, Satellite sat)
         {
             var newobj = Object.Instantiate(satellitePrefab);
             newobj.name = "Generated Satellite";
-            newobj.GetComponent<Transform>().Translate(parentSat.orbit.offset.x, parentSat.orbit.offset.y, 0f);
+            if (parent)
+                newobj.GetComponent<Transform>().parent = parent.GetComponent<Transform>();
+            newobj.GetComponent<Transform>().Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
             var satComponent = newobj.GetComponent<PlanetComponent>();
-            var childCount = parentSat.GetChildCount();
 
+            var childCount = sat.GetChildCount();
             satComponent.children = new GameObject[childCount];
             for (var i = 0; i < childCount; ++i)
             {
-                satComponent.satellite = parentSat.children[i];
-                satComponent.children[i] = GenerateSolarSystemHelper(newobj, parentSat.children[i]);
+                satComponent.satellite = sat.children[i];
+                satComponent.children[i] = GenerateSolarSystemHelper(newobj, sat.children[i]);
             }
 
             return newobj;
         }
-    }
 
+        // this needs to be moved to a sane place
+        public void OnPrimaryClick(InputAction.CallbackContext context)
+        {
+            var hit = Physics2D.Raycast(transform.position, -Vector2.up);
+
+            if (hit.collider)
+            {
+                Debug.Log("you clicked on something!");
+            }
+        }
+    }
 }

@@ -9,7 +9,6 @@ namespace SpaceJunk.Core
         public PlayerInfo playerInfo;
 
         // Tree of celestial shit
-        // TODO convert to a more efficient data structure depending on use case
         public Satellite rootSystem;
     }
 }
