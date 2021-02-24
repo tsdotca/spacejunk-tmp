@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 
 using SpaceJunk.Core;
+using SpaceJunk.UI;
 
 namespace SpaceJunk.SolarSystem
 {
@@ -53,32 +54,53 @@ namespace SpaceJunk.SolarSystem
 
         public void OnPrimaryClick(InputAction.CallbackContext context)
         {
-            Debug.Log("you click'd on " + Mouse.current.position);
+            var x = Mouse.current.position.x.ReadValue();
+            var y = Mouse.current.position.y.ReadValue();
+            Debug.Log($"you click'd on {x} || {y}");
+            var camera = this.mainCamera.GetComponent<Camera>();
+            var vect = camera.ScreenToWorldPoint(new Vector3(x, y, 0));
+            var x2 = vect.x;
+            var y2 = vect.y;
+            Debug.Log($"you click'dd on {x2} || {y2}");
             //Debug.Log("world coords: " + this.mainCamera.ScreenToWorldPoint(Mouse.current.position));
+            var planet = FindPlanetAtPoint(x2, y2);
+            if (planet)
+                sidePanelController.GetComponent<SidePanelController>().SelectObject(planet);
+            else
+                sidePanelController.GetComponent<SidePanelController>().ClearSelection();
         }
 
-        protected GameObject FindPlanetAtPoint(int x, int y)
+        protected GameObject FindPlanetAtPoint(float x, float y)
         {
             var contactFilter = new ContactFilter2D();
-            contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
+            // contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
+            contactFilter.NoFilter();
 
             // FIXME this is kind of stupid and broken:
-            //     The array to receive results. The size of the array determines
-            //     the maximum number of results that can be returned.
-            // so need to figure out a better way, it would seem
+            //     "The array to receive results. The size of the array determines
+            //      the maximum number of results that can be returned."
+            // so need to figure out a better way, it would see
             const int result_limit_size = 4;
             var results = new RaycastHit2D[result_limit_size];
 
-            if (Physics2D.Raycast(transform.position, -Vector2.up, contactFilter, results) is int numResults && 0 < numResults)
+            if (Physics2D.Raycast(new Vector2(x, y), -Vector2.up, contactFilter, results) is int numResults && 0 < numResults)
             {
                 if (1 < results.Length)
                     Debug.LogWarning("more than one click result found; discarding");
+
                 var gameobj = results[0].collider.gameObject;
+                if (gameobj == null)
+                {
+                    Debug.LogWarning("failed attempt");
+                    return null;
+                }
+
                 var sat = gameobj.GetComponent<PlanetComponent>().satellite;
                 Debug.Log("you clicked on " + sat.name);
                 return gameobj;
             }
 
+            Debug.Log("nothing found");
             return null;
         }
     }

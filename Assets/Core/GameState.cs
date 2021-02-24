@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace SpaceJunk.Core
+﻿namespace SpaceJunk.Core
 {
     public class GameState
     {

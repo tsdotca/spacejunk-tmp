@@ -34,12 +34,12 @@ namespace SpaceJunk.UI
             this.mainActionButtonsPanel.SetActive(false);
         }
 
-        void SelectObject(GameObject o)
+        public void SelectObject(GameObject o)
         {
             contextInfoPanel.SetActive(true);
         }
 
-        void ClearSelection()
+        public void ClearSelection()
         {
             contextInfoPanel.SetActive(false);
         }
