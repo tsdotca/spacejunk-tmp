@@ -86,7 +86,7 @@ namespace SpaceJunk.SolarSystem
             if (Physics2D.Raycast(new Vector2(x, y), -Vector2.up, contactFilter, results) is int numResults && 0 < numResults)
             {
                 if (1 < results.Length)
-                    Debug.LogWarning("more than one click result found; discarding");
+                    Debug.LogWarning($"more than one click result found {results.Length}; discarding");
 
                 var gameobj = results[0].collider.gameObject;
                 if (gameobj == null)
