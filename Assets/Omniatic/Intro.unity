@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 564075401}
   - component: {fileID: 564075402}
   m_Layer: 0
-  m_Name: OmniaticaPfp
+  m_Name: Buddy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27eedfb22419c994db1dee330296ffd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introDelaySeconds: 2
+  buddyObject: {fileID: 564075400}
+  logoObject: {fileID: 252372142}
+  fadeInRate: 1
+  fadeOutRate: 2
+  blinkDelay: 0.5
+  lookLeft: {fileID: 21300000, guid: 099546dc84c356149bc5522afba90874, type: 3}
+  lookRight: {fileID: 21300000, guid: 30c6c6b67a17cba439fc3693e7e855f7, type: 3}
+  lookCentre: {fileID: 21300000, guid: f2dc1a99b015336488c84bfa5e3a8c5f, type: 3}
+  blink: {fileID: 21300000, guid: 60d40fe42ccff1f4d8e560561cf865ee, type: 3}
 --- !u!4 &956823598
 Transform:
   m_ObjectHideFlags: 0
@@ -566,7 +574,7 @@ GameObject:
   - component: {fileID: 1399157156}
   - component: {fileID: 1399157157}
   m_Layer: 0
-  m_Name: OmniaticaLogo3
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
