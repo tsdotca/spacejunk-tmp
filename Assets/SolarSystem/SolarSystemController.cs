@@ -73,7 +73,7 @@ namespace SpaceJunk.SolarSystem
         protected GameObject FindPlanetAtPoint(float x, float y)
         {
             var contactFilter = new ContactFilter2D();
-            // contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
+            contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
             contactFilter.NoFilter();
 
             // FIXME this is kind of stupid and broken:
@@ -85,8 +85,8 @@ namespace SpaceJunk.SolarSystem
 
             if (Physics2D.Raycast(new Vector2(x, y), -Vector2.up, contactFilter, results) is int numResults && 0 < numResults)
             {
-                if (1 < results.Length)
-                    Debug.LogWarning($"more than one click result found {results.Length}; discarding");
+                if (1 < numResults)
+                    Debug.LogWarning($"more than one click result; found {numResults}. discarding");
 
                 var gameobj = results[0].collider.gameObject;
                 if (gameobj == null)

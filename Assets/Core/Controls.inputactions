@@ -1,5 +1,5 @@
 {
-    "name": "SpaceJunk",
+    "name": "Controls",
     "maps": [
         {
             "name": "Player",
@@ -18,10 +18,10 @@
                 {
                     "name": "",
                     "id": "8dab419b-68b5-4d3a-8bf0-f994472876a2",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "ContextSelect",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -41,14 +41,14 @@ namespace SpaceJunk.Core
         public Satellite(string name)
         {
             this.name = name;
-            this.children = new List<Satellite>(8);
-            this.orbit = new Orbit();
+            children = new List<Satellite>(8);
+            orbit = new Orbit();
         }
 
         // TODO: readonly??? "is not valid for this item"
         public int GetChildCount()
         {
-            return this.children.Count;
+            return children.Count;
         }
     }
 }
