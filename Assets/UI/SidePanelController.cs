@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-using SpaceJunk.Core;
-
 namespace SpaceJunk.UI
 {
     // FIXME: This class assumes that it is attached to the same UI canvas instance.
@@ -11,6 +9,12 @@ namespace SpaceJunk.UI
 
         protected GameObject clockText;
 
+        protected GameObject pauseButton;
+        protected GameObject playNormalButton;
+        protected GameObject playFastButton;
+        protected GameObject playFastestButton;
+        protected GameObject stepToNextButton;
+
         protected GameObject contextInfoPanel;
         //protected GameObject descriptionLabelText;
 
@@ -18,11 +22,17 @@ namespace SpaceJunk.UI
         protected GameObject cancelAction;
         protected GameObject affirmativeAction;
 
-        public void RefreshSidePanel()
+        public void RefreshSidePanel()  // FIXME bad name
         {
             this._sidebarPanel = this.gameObject;  // FIXME!!!
 
             this.clockText = GetChildWithName(_sidebarPanel, "Clock");
+
+            this.pauseButton = GetChildWithName(_sidebarPanel, "PauseButton");
+            this.playNormalButton = GetChildWithName(_sidebarPanel, "PlayNormalButton");
+            this.playFastButton = GetChildWithName(_sidebarPanel, "PlayFastButton");
+            this.playFastestButton = GetChildWithName(_sidebarPanel, "PlayFastestButton");
+            this.stepToNextButton = GetChildWithName(_sidebarPanel, "StepToNextButton");
 
             this.contextInfoPanel = GetChildWithName(_sidebarPanel, "ContextInfoPanel");
             this.contextInfoPanel.SetActive(false);
