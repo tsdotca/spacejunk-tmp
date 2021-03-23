@@ -47,6 +47,7 @@ namespace SpaceJunk.UI
 
         public void OnNewGame()
         {
+            print("new game");
             newGameDialog.SetActive(true);
         }
 
