@@ -15,27 +15,27 @@ namespace SpaceJunk.UI
         public GameObject newGameDialog;
 
         public Selectable continueButton;
-        public Selectable optionsButton;
+        public Selectable loadGameButton;
 
         [Flags]
         public enum OptionalButtons
         {
             None,
             Continue,
-            Options,
+            LoadGame,
         }
 
         public OptionalButtons enabledButtons = OptionalButtons.None;
 
         public void Start()
         {
-            newGameDialog.SetActive(false);
+            DebugDisable();  // TODO once we get save games and stuff
         }
 
         public void DebugDisable()
         {
             continueButton.interactable = false;
-            optionsButton.interactable = false;
+            loadGameButton.interactable = false;
         }
 
         #region Main menu handlers

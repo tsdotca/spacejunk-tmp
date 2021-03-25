@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 412.5, y: 352}
+  m_AnchoredPosition: {x: 429.2, y: 437.54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4944505178957363866
@@ -562,8 +562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -186.79999, y: 113.5}
-  m_SizeDelta: {x: 834.36755, y: 407.00488}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 640, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4754218253054493559
 Canvas:
@@ -574,7 +574,7 @@ Canvas:
   m_GameObject: {fileID: 3490651361776707735}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -977,7 +977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 412.5, y: 284}
+  m_AnchoredPosition: {x: 429.2, y: 402.54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7020462492695591833
@@ -1570,7 +1570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 227.3, y: 352}
+  m_AnchoredPosition: {x: 218.7, y: 437.54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8077680384786701471
@@ -1808,7 +1808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 227.3, y: 284}
+  m_AnchoredPosition: {x: 218.7, y: 402.54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5368943729903044896
@@ -2158,7 +2158,7 @@ PrefabInstance:
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 700.2
+      value: 541
       objectReference: {fileID: 0}
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
@@ -2288,7 +2288,7 @@ PrefabInstance:
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 522.2
+      value: 359.5
       objectReference: {fileID: 0}
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
