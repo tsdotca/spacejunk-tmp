@@ -434,9 +434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buddyObject: {fileID: 564075400}
   logoObject: {fileID: 252372142}
-  fadeInRate: 1
-  fadeOutRate: 2
-  blinkDelay: 0.5
   lookLeft: {fileID: 21300000, guid: 099546dc84c356149bc5522afba90874, type: 3}
   lookRight: {fileID: 21300000, guid: 30c6c6b67a17cba439fc3693e7e855f7, type: 3}
   lookCentre: {fileID: 21300000, guid: f2dc1a99b015336488c84bfa5e3a8c5f, type: 3}
@@ -467,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d95cdc329582fa340aab5fd1b50d2bed,
+  m_Actions: {fileID: -944628639613478452, guid: ebd0d0f2fb9934444ae7f05526789df7,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -483,81 +480,56 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: c6551a79-fbac-4537-9826-7783dda02921
+    m_ActionId: fdfb446d-b36a-4387-b820-75e6ac3033cc
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87419e6a-164d-4ca2-8c9e-d90e80b53f1e
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 573e6f46-2f1d-4f06-9138-e26917283df9
+    m_ActionName: Player/ContextSelect[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00f1de8e-ac1e-4d83-a4ec-988bdefe92cc
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 956823597}
-        m_MethodName: OnForcedTransition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9a5ad84e-fac5-441d-9781-7974a90dd82e
+      m_Calls: []
+    m_ActionId: be1bdee4-bcfb-4c1f-b85d-6a1090d06fdd
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 956823597}
-        m_MethodName: OnForcedTransition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6c941f37-3366-4cfe-9cd2-b485d456a8c3
+      m_Calls: []
+    m_ActionId: 5355824b-39f5-42b3-83a4-7732a44e7b5b
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 79afe5f0-8d69-43aa-8d20-ec0cc754d1a4
+    m_ActionId: 5546f241-70aa-4e5e-abbf-8893060fed35
     m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 956823597}
-        m_MethodName: OnForcedTransition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a6dfb41e-c40a-4e03-9e50-d656bd593372
+      m_Calls: []
+    m_ActionId: a50dc50b-a0f0-4ef2-a290-a60f3505970c
     m_ActionName: UI/Click[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: ce1b0ebb-e547-4572-bb78-42c8f0287487
+    m_ActionId: 631be7c7-f8d9-4671-88ee-0a5f29b838c6
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 5fd2bd72-09d7-4693-be3c-e85cd5967b5e
+    m_ActionId: 50600388-459d-4540-8021-6eb46f6e402b
     m_ActionName: UI/MiddleClick[/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 488a0506-3512-46b7-b320-0c9780e174bf
+    m_ActionId: 87b6607f-fa72-43d6-8a7f-1f9d54d53779
     m_ActionName: UI/RightClick[/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2d3e6aee-60db-4159-8ae4-8aa5dc05ecac
+    m_ActionId: 308fbafa-eb54-4be6-bcee-879780a9eafc
     m_ActionName: UI/TrackedDevicePosition
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: da940ca4-c3a2-43d4-99f0-85b62462f91a
+    m_ActionId: 171640fb-e692-4257-934e-0208c2235cb8
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d455fdd9-1aa2-4093-be9c-2ae69c20241a
-    m_ActionName: Player/ContextSelect[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

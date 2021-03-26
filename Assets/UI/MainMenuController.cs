@@ -13,6 +13,7 @@ namespace SpaceJunk.UI
     public class MainMenuController : MonoBehaviour
     {
         public GameObject newGameDialog;
+        public GameObject optionsDialog;
 
         public Selectable continueButton;
         public Selectable loadGameButton;
