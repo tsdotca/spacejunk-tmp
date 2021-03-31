@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 529118583264437764}
   - component: {fileID: 8713140122840645290}
   m_Layer: 5
-  m_Name: CaptainNameInputField
+  m_Name: CaptainNameInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
