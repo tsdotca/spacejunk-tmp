@@ -35,20 +35,16 @@ namespace SpaceJunk.Core
     public class Satellite
     {
         public string name;
+        public string description;
         public List<Satellite> children;
         public Orbit orbit;
 
-        public Satellite(string name)
+        public Satellite(string name, string description)
         {
             this.name = name;
+            this.description = description;
             children = new List<Satellite>(8);
             orbit = new Orbit();
-        }
-
-        // TODO: readonly??? "is not valid for this item"
-        public int GetChildCount()
-        {
-            return children.Count;
         }
     }
 }

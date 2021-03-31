@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+
+using SpaceJunk.Core;
 
 namespace SpaceJunk.UI
 {
@@ -16,7 +19,7 @@ namespace SpaceJunk.UI
         protected GameObject stepToNextButton;
 
         protected GameObject contextInfoPanel;
-        //protected GameObject descriptionLabelText;
+        protected GameObject descriptionLabelText;
 
         protected GameObject mainActionButtonsPanel;
         protected GameObject cancelAction;
@@ -36,7 +39,7 @@ namespace SpaceJunk.UI
 
             this.contextInfoPanel = GetChildWithName(_sidebarPanel, "ContextInfoPanel");
             this.contextInfoPanel.SetActive(false);
-            //this.descriptionLabelText = GetChildWithName(this.contextInfoPanel, "SelectedDescriptionText");
+            this.descriptionLabelText = GetChildWithName(this.contextInfoPanel, "SelectedDescriptionText");
 
             this.mainActionButtonsPanel = GetChildWithName(_sidebarPanel, "MainActionButtonsPanel");
             this.cancelAction = GetChildWithName(this.mainActionButtonsPanel, "CancelAction");
@@ -47,6 +50,7 @@ namespace SpaceJunk.UI
         public void SelectObject(GameObject o)
         {
             contextInfoPanel.SetActive(true);
+            descriptionLabelText.GetComponent<Text>().text = o.GetComponent<Satellite>().description;
         }
 
         public void ClearSelection()

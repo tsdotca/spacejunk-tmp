@@ -41,7 +41,7 @@ namespace SpaceJunk.SolarSystem
             newobj.GetComponent<Transform>().Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
             var satComponent = newobj.GetComponent<PlanetComponent>();
 
-            var childCount = sat.GetChildCount();
+            var childCount = sat.children.Count;
             satComponent.children = new GameObject[childCount];
             for (var i = 0; i < childCount; ++i)
             {

@@ -55,7 +55,8 @@ namespace SpaceJunk.SolarSystem
 
         public static Satellite GenerateRootSystem()
         {
-            return new Satellite(GameManager.GetSystemPlotName());
+            return new Satellite(GameManager.GetSystemPlotName(),
+                GameManager.GetSystemDescription());
         }
 
         // TODO: remove in-out param
@@ -70,7 +71,10 @@ namespace SpaceJunk.SolarSystem
 
         public static Satellite GenerateRandomPlanet()
         {
-            var sat = new Satellite("new test planet");
+            var sat = new Satellite(
+                GenerateRandomPlanetName(),
+                GenerateRandomPlanetDescription()
+                );
             sat.orbit.offset = GenerateSystemOffset(kSolarWidth, kSolarHeight);
             return sat;
         }
@@ -82,6 +86,11 @@ namespace SpaceJunk.SolarSystem
             var randomNameIndex = Random.Range(0, dummyNames.Length);
             var randomName = dummyNames[randomNameIndex];
             return System.String.Format("{0}-{1}", randomName, (int)Random.Range(0, 65535));
+        }
+
+        public static string GenerateRandomPlanetDescription()
+        {
+            return "this is a description";
         }
     }
 

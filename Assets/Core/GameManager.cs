@@ -61,13 +61,19 @@ namespace SpaceJunk.Core
         }
 
         /// <summary>
-        /// This returns the English name of the solar system that the game takes place in.
-        /// 
-        /// Currently hard-coded, but may be configurable or randomly generated later on.
+        /// Currently hard-coded in English, but may be configurable or randomly generated later on.
         /// </summary>
         public static string GetSystemPlotName()
         {
             return "Pytheas Majoris";
+        }
+
+        /// <summary>
+        /// Currently hard-coded in English, but may be configurable or randomly generated later on.
+        /// </summary>
+        public static string GetSystemDescription()
+        {
+            return "A place where things exist!";
         }
 
         public static int GetSelectableLayerMask()
