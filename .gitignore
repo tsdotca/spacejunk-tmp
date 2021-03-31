@@ -73,3 +73,7 @@ crashlytics-build.properties
 # input system temp files
 /[Aa]ssets/Core/Controls.cs.meta
 /[Aa]ssets/Core/Controls.cs
+
+
+# stuff
+*.xcf
