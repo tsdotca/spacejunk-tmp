@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 4754218253054493559}
   - component: {fileID: 4402245035965444135}
   m_Layer: 5
-  m_Name: NewGameCanvas
+  m_Name: NewGameDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
