@@ -1,23 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace SpaceJunk.UI
 {
-    public class FleetStatusController : MonoBehaviour
+    public class FleetStatusController : UIControllerBase
     {
-        public Button closeDialogButton;
-
-        void Start()
+        protected override void OnAffirmativeAction()
         {
-            closeDialogButton.onClick.AddListener(() => this.gameObject.SetActive(false));
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            Debug.Log("hooray i know base C# syntax!");
+            this.Close();
         }
     }
 

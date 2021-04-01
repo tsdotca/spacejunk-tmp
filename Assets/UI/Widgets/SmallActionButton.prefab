@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1025740386493698728, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
       propertyPath: m_Name
-      value: ActionButton (1)
+      value: SmallActionButton
       objectReference: {fileID: 0}
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
@@ -60,12 +60,12 @@ PrefabInstance:
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.66
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.66
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1025740386493698731, guid: c53e91b868d5b0c4ebbfa561468d8d68,
         type: 3}
@@ -126,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025740386800692206, guid: c53e91b868d5b0c4ebbfa561468d8d68,
+        type: 3}
+      propertyPath: m_Text
+      value: smol act
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c53e91b868d5b0c4ebbfa561468d8d68, type: 3}

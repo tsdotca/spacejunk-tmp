@@ -15,8 +15,8 @@ namespace SpaceJunk.UI
         public GameObject newGameDialog;
         public GameObject optionsDialog;
 
-        public Selectable continueButton;
-        public Selectable loadGameButton;
+        public Button continueButton;
+        public Button loadGameButton;
 
         [Flags]
         public enum OptionalButtons
@@ -28,7 +28,7 @@ namespace SpaceJunk.UI
 
         public OptionalButtons enabledButtons = OptionalButtons.None;
 
-        public void Start()
+        void Start()
         {
             DebugDisable();  // TODO once we get save games and stuff
         }
