@@ -9,7 +9,8 @@ namespace SpaceJunk.SolarSystem
     public class SolarSystemController : MonoBehaviour
     {
         public GameObject mainCamera;
-        public GameObject sidePanelController;
+        public SidePanelController sidePanelController;
+        public TopMenubarController topBarController;
 
         public GameObject satellitePrefab;
         public Sprite rootSprite;  // FIXME do we really have to hook this up in the editor?
@@ -17,10 +18,11 @@ namespace SpaceJunk.SolarSystem
         protected GameObject rootSat;  // TODO better name
         protected GameObject currentSelected = null;
 
-        public void TestHookThing(Satellite root)
+        public void TestHookThing(GameState gameState)
         {
-            rootSat = GenerateSolarSystemFromPlanetRoot(root);
-            sidePanelController.GetComponent<SpaceJunk.UI.SidePanelController>().RefreshSidePanel();
+            rootSat = GenerateSolarSystemFromPlanetRoot(gameState.rootSystem);
+            sidePanelController.RefreshSidePanel();
+            topBarController.UpdateGameStatus(gameState);
         }
 
         // XXX: currently properties are dynamically accessed via indirection
@@ -65,9 +67,9 @@ namespace SpaceJunk.SolarSystem
             //Debug.Log("world coords: " + this.mainCamera.ScreenToWorldPoint(Mouse.current.position));
             var planet = FindPlanetAtPoint(x2, y2);
             if (planet)
-                sidePanelController.GetComponent<SidePanelController>().SelectObject(planet);
+                sidePanelController.SelectObject(planet);
             else
-                sidePanelController.GetComponent<SidePanelController>().ClearSelection();
+                sidePanelController.ClearSelection();
         }
 
         protected GameObject FindPlanetAtPoint(float x, float y)

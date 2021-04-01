@@ -55,7 +55,15 @@ namespace SpaceJunk.UI
         /// </summary>
         public void UpdateGameStatus(GameState state)
         {
-            // TODO
+            // TODO: use a separate function/class to scale each colour
+            //       based on the resource type and value
+            //       (note that requires refactoring resources)
+            powerLabel.text = state.power.ToString();
+            powerLabel.color = currentPalette.Default;
+            computeCapLabel.text = state.computation.ToString();
+            computeCapLabel.color = currentPalette.Default;
+            cargoLabel.text = state.cargoCount.ToString();
+            cargoLabel.color = currentPalette.Default;
         }
     }
 

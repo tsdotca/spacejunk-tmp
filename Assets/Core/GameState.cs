@@ -37,12 +37,17 @@
         /// <summary>
         /// How many canadian tyre bux the player possesses.
         /// </summary>
-        public int Credits = 0;
+        public int power = 0;
 
         /// <summary>
-        /// How much of the computing resource the player has.
+        /// How much of the computing resource the player's fleet possesses.
         /// </summary>
-        public int Computation = 0;
+        public int computation = 0;
+
+        /// <summary>
+        /// How much cargo capacity the player's fleet possesses.
+        /// </summary>
+        public int cargoCount;
 
         /// <summary>
         /// The root of the solar system, either pre-computed or generated.

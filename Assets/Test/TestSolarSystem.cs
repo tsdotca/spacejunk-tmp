@@ -23,7 +23,7 @@ namespace SpaceJunk.SolarSystem
 
             GameManager.GetInstance().state = rndState;
             var comp = SSC.GetComponent<SolarSystemController>();
-            comp.TestHookThing(rndState.rootSystem);
+            comp.TestHookThing(rndState);
         }
 
         /// <summary>
