@@ -17,29 +17,19 @@ namespace SpaceJunk.UI
     {
         protected StatusTextPalette currentPalette;
 
-        public GameObject mainMenuButton;
-        public GameObject fleetStatusButton;
-        public GameObject pendingTasksButton;
+        public Button mainMenuButton;
+        public Button fleetStatusButton;
+        public Button pendingTasksButton;
 
         // icons ignored, set in editor
 
-        public GameObject powerLabel;
-        public GameObject computeCapLabel;
-        public GameObject cargoLabel;
-
-        private void UpdateLabelText(GameObject label, string newText)
-        {
-            var text = label.GetComponent<Text>();
-            text.text = newText;
-            text.color = currentPalette.Default;
-        }
+        public Text powerLabel;
+        public Text computeCapLabel;
+        public Text cargoLabel;
 
         void Start()
         {
             currentPalette = new StatusTextPalette();
-            UpdateLabelText(powerLabel, "asdf");
-            UpdateLabelText(computeCapLabel, "haha cpu");
-            UpdateLabelText(cargoLabel, "0/100");
         }
 
         public void OnMainMenu()
