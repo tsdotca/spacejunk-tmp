@@ -584,7 +584,7 @@ PrefabInstance:
     - target: {fileID: 4012938126112692323, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0003736953
+      value: 0.000018707044
       objectReference: {fileID: 0}
     - target: {fileID: 4012938126609456299, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
@@ -604,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 4012938126609456303, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4012938126609456303, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
@@ -1364,6 +1364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopBar
       objectReference: {fileID: 0}
+    - target: {fileID: 6779200442902646569, guid: 360b2febebbcb924a986a7a14d86bfbb,
+        type: 3}
+      propertyPath: fleetStatusDialog
+      value: 
+      objectReference: {fileID: 1640871642}
     - target: {fileID: 6779200442902646570, guid: 360b2febebbcb924a986a7a14d86bfbb,
         type: 3}
       propertyPath: m_Pivot.x

@@ -27,6 +27,9 @@ namespace SpaceJunk.UI
         public Text computeCapLabel;
         public Text cargoLabel;
 
+        public GameObject fleetStatusDialog;
+        public GameObject pendingTasksDialog;
+
         void Start()
         {
             currentPalette = new StatusTextPalette();
@@ -39,12 +42,12 @@ namespace SpaceJunk.UI
 
         public void OnFleetStatus()
         {
-            Debug.Log("fleet status");
+            fleetStatusDialog.SetActive(true);
         }
 
         public void OnPendingTasks()
         {
-            Debug.Log("on pending tasks");
+            pendingTasksDialog.SetActive(true);
         }
 
         /// <summary>
