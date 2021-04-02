@@ -12,12 +12,20 @@ namespace SpaceJunk.UI
         // Start is called before the first frame update
         void Start()
         {
+            // TODO maybe set of flags depending on dialog?
             alternateButton = FindButton("AlternateAction");
             alternateButton.onClick.AddListener(() => OnAlternateAction());
             cancelButton = FindButton("CancelAction");
             cancelButton.onClick.AddListener(() => OnCancelAction());
             affirmButton = FindButton("AffirmativeAction");
             affirmButton.onClick.AddListener(() => OnAffirmativeAction());
+
+            InitUI();
+        }
+
+        protected virtual void InitUI()
+        {
+
         }
 
         protected Button FindButton(string name)

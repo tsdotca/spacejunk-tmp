@@ -5,9 +5,14 @@ namespace SpaceJunk.UI
 {
     public class FleetStatusController : UIControllerBase
     {
+        protected override void InitUI()
+        {
+            this.alternateButton.gameObject.SetActive(false);
+            this.cancelButton.gameObject.SetActive(false);
+        }
+
         protected override void OnAffirmativeAction()
         {
-            Debug.Log("hooray i know base C# syntax!");
             this.Close();
         }
     }
