@@ -54,7 +54,7 @@ namespace SpaceJunk.SolarSystem
             return newobj;
         }
 
-        public void OnPrimaryClick(InputAction.CallbackContext context)
+        public void OnLeftClick()
         {
             var x = Mouse.current.position.x.ReadValue();
             var y = Mouse.current.position.y.ReadValue();
