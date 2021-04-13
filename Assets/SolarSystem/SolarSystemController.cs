@@ -37,42 +37,43 @@ namespace SpaceJunk.SolarSystem
         protected GameObject GenerateSolarSystemHelper(GameObject parent, Satellite sat)
         {
             var newobj = Object.Instantiate(satellitePrefab);
-            newobj.name = "Generated Satellite";
+            newobj.name = "Generated Satellite " + sat.name;
             if (parent)
                 newobj.GetComponent<Transform>().parent = parent.GetComponent<Transform>();
             newobj.GetComponent<Transform>().Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
             var satComponent = newobj.GetComponent<PlanetComponent>();
 
+            satComponent.satellite = sat;
             var childCount = sat.children.Count;
             satComponent.children = new GameObject[childCount];
             for (var i = 0; i < childCount; ++i)
             {
-                satComponent.satellite = sat.children[i];
                 satComponent.children[i] = GenerateSolarSystemHelper(newobj, sat.children[i]);
             }
 
             return newobj;
         }
 
-        public void OnLeftClick()
+        public void OnClick()
         {
             var x = Mouse.current.position.x.ReadValue();
             var y = Mouse.current.position.y.ReadValue();
             Debug.Log($"you click'd on {x} || {y}");
+
             var camera = this.mainCamera.GetComponent<Camera>();
             var vect = camera.ScreenToWorldPoint(new Vector3(x, y, 0));
             var x2 = vect.x;
             var y2 = vect.y;
             Debug.Log($"you click'dd on {x2} || {y2}");
-            //Debug.Log("world coords: " + this.mainCamera.ScreenToWorldPoint(Mouse.current.position));
+
             var planet = FindPlanetAtPoint(x2, y2);
             if (planet)
-                sidePanelController.SelectObject(planet);
+                sidePanelController.SelectPlanet(planet);
             else
                 sidePanelController.ClearSelection();
         }
 
-        protected GameObject FindPlanetAtPoint(float x, float y)
+        protected PlanetComponent FindPlanetAtPoint(float x, float y)
         {
             var contactFilter = new ContactFilter2D();
             contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
@@ -81,7 +82,7 @@ namespace SpaceJunk.SolarSystem
             // FIXME this is kind of stupid and broken:
             //     "The array to receive results. The size of the array determines
             //      the maximum number of results that can be returned."
-            // so need to figure out a better way, it would see
+            // so need to figure out a better way, it would seem
             const int result_limit_size = 4;
             var results = new RaycastHit2D[result_limit_size];
 
@@ -97,9 +98,8 @@ namespace SpaceJunk.SolarSystem
                     return null;
                 }
 
-                var sat = gameobj.GetComponent<PlanetComponent>().satellite;
-                Debug.Log("you clicked on " + sat.name);
-                return gameobj;
+                var sat = gameobj.GetComponent<PlanetComponent>();
+                return sat;
             }
 
             Debug.Log("nothing found");

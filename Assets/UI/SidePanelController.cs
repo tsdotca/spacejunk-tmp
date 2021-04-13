@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 
 using SpaceJunk.Core;
+using SpaceJunk.SolarSystem;
 
 namespace SpaceJunk.UI
 {
@@ -47,10 +48,10 @@ namespace SpaceJunk.UI
             this.mainActionButtonsPanel.SetActive(false);
         }
 
-        public void SelectObject(GameObject o)
+        public void SelectPlanet(PlanetComponent o)
         {
             contextInfoPanel.SetActive(true);
-            descriptionLabelText.GetComponent<Text>().text = o.GetComponent<Satellite>().description;
+            descriptionLabelText.GetComponent<Text>().text = o.satellite.description;
         }
 
         public void ClearSelection()

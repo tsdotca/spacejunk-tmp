@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 4012938126112692323, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000014491267
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 4012938126609456299, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
@@ -1618,6 +1618,7 @@ GameObject:
   - component: {fileID: 1964757055}
   - component: {fileID: 1964757054}
   - component: {fileID: 1964757053}
+  - component: {fileID: 1964757056}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -1689,6 +1690,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964757056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964757052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ebd0d0f2fb9934444ae7f05526789df7,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 1964757053}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fdfb446d-b36a-4387-b820-75e6ac3033cc
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87419e6a-164d-4ca2-8c9e-d90e80b53f1e
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 573e6f46-2f1d-4f06-9138-e26917283df9
+    m_ActionName: Player/ContextSelect[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00f1de8e-ac1e-4d83-a4ec-988bdefe92cc
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be1bdee4-bcfb-4c1f-b85d-6a1090d06fdd
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5355824b-39f5-42b3-83a4-7732a44e7b5b
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5546f241-70aa-4e5e-abbf-8893060fed35
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 861959940}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a50dc50b-a0f0-4ef2-a290-a60f3505970c
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 631be7c7-f8d9-4671-88ee-0a5f29b838c6
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 50600388-459d-4540-8021-6eb46f6e402b
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87b6607f-fa72-43d6-8a7f-1f9d54d53779
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 308fbafa-eb54-4be6-bcee-879780a9eafc
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 171640fb-e692-4257-934e-0208c2235cb8
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 548193903}
 --- !u!1 &4012938125796128170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4012938126609456299, guid: 183c58d64170ef242aa03a2fc8666cd3,
