@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 4012938126112692323, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0.0000052906103
       objectReference: {fileID: 0}
     - target: {fileID: 4012938126609456299, guid: 183c58d64170ef242aa03a2fc8666cd3,
         type: 3}
@@ -1725,7 +1725,18 @@ MonoBehaviour:
     m_ActionId: 87419e6a-164d-4ca2-8c9e-d90e80b53f1e
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 861959940}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 573e6f46-2f1d-4f06-9138-e26917283df9
     m_ActionName: Player/ContextSelect[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1745,18 +1756,7 @@ MonoBehaviour:
     m_ActionId: 5546f241-70aa-4e5e-abbf-8893060fed35
     m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 861959940}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: a50dc50b-a0f0-4ef2-a290-a60f3505970c
     m_ActionName: UI/Click[/Mouse/leftButton]
   - m_PersistentCalls:

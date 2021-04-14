@@ -58,13 +58,11 @@ namespace SpaceJunk.SolarSystem
         {
             var x = Mouse.current.position.x.ReadValue();
             var y = Mouse.current.position.y.ReadValue();
-            Debug.Log($"you click'd on {x} || {y}");
 
             var camera = this.mainCamera.GetComponent<Camera>();
             var vect = camera.ScreenToWorldPoint(new Vector3(x, y, 0));
             var x2 = vect.x;
             var y2 = vect.y;
-            Debug.Log($"you click'dd on {x2} || {y2}");
 
             var planet = FindPlanetAtPoint(x2, y2);
             if (planet)
