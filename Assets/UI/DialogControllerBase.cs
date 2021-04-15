@@ -5,9 +5,9 @@ namespace SpaceJunk.UI
 {
     public class DialogControllerBase : MonoBehaviour
     {
-        public Button alternateButton;
-        public Button cancelButton;
-        public Button affirmButton;
+        protected Button alternateButton;
+        protected Button cancelButton;
+        protected Button affirmButton;
 
         // Start is called before the first frame update
         void Start()
