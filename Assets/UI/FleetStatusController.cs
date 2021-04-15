@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace SpaceJunk.UI
 {
-    public class FleetStatusController : UIControllerBase
+    public class FleetStatusController : DialogControllerBase
     {
         protected override void InitUI()
         {

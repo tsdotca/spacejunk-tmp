@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace SpaceJunk.UI
 {
-    public class UIControllerBase : MonoBehaviour
+    public class DialogControllerBase : MonoBehaviour
     {
         public Button alternateButton;
         public Button cancelButton;
