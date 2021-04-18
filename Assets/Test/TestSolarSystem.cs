@@ -7,9 +7,6 @@ namespace SpaceJunk.SolarSystem
 
     public class TestSolarSystem : MonoBehaviour
     {
-        public GameObject root;
-        public GameObject planetPrefab;
-
         public GameObject SSC;
 
         public const int kSolarWidth = 64;
@@ -84,7 +81,7 @@ namespace SpaceJunk.SolarSystem
         {
             int x = Random.Range(-(w / 2), w / 2);
             int y = Random.Range(-(h / 2), h / 2);
-            return new Offset(x, y);
+            return new Offset { x, y };
         }
     }
 

@@ -2,16 +2,10 @@
 
 namespace SpaceJunk.Core
 {
-    public class Offset
+    public struct Offset
     {
         public int x;
         public int y;
-
-        public Offset(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
     }
 
     public class Orbit
@@ -23,7 +17,7 @@ namespace SpaceJunk.Core
         }
 
         public OrbitType orbitType = OrbitType.Fixed;
-        public Offset offset = new Offset(0, 0);
+        public Offset offset;
     }
 
     /// <summary>
