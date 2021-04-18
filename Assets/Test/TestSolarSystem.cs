@@ -26,37 +26,17 @@ namespace SpaceJunk.SolarSystem
             comp.TestHookThing(rndState);
         }
 
-        /// <summary>
-        /// Generates a random Vector3 bounded by w, h, z=1
-        /// </summary>
-        public static Vector3 GenerateRandomObjectPosition(int w, int h)
-        {
-            int x = Random.Range(-(w / 2), w / 2);
-            int y = Random.Range(-(h / 2), h / 2);
-            return new Vector3(x, y, 1);
-        }
-
-        public static Offset GenerateSystemOffset(int w, int h)
-        {
-            int x = Random.Range(-(w / 2), w / 2);
-            int y = Random.Range(-(h / 2), h / 2);
-            return new Offset(x, y);
-        }
-
         public static GameState GenerateRandomGameState()
         {
             GameState state = new GameState();
-            var rootSystem = GenerateRootSystem();
+            var rootSystem = new Satellite(
+                GameManager.GetSystemPlotName(),
+                GameManager.GetSystemDescription());
+
             GenerateSolarSystem(rootSystem);
             state.rootSystem = rootSystem;
 
             return state;
-        }
-
-        public static Satellite GenerateRootSystem()
-        {
-            return new Satellite(GameManager.GetSystemPlotName(),
-                GameManager.GetSystemDescription());
         }
 
         // TODO: remove in-out param
@@ -91,6 +71,20 @@ namespace SpaceJunk.SolarSystem
         public static string GenerateRandomPlanetDescription()
         {
             return "this is a description";
+        }
+
+        public static Vector3 GenerateRandomObjectPosition(int w, int h)
+        {
+            int x = Random.Range(-(w / 2), w / 2);
+            int y = Random.Range(-(h / 2), h / 2);
+            return new Vector3(x, y, 1);
+        }
+
+        public static Offset GenerateSystemOffset(int w, int h)
+        {
+            int x = Random.Range(-(w / 2), w / 2);
+            int y = Random.Range(-(h / 2), h / 2);
+            return new Offset(x, y);
         }
     }
 
