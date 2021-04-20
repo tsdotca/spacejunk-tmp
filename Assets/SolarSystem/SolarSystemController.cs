@@ -39,11 +39,13 @@ namespace SpaceJunk.SolarSystem
             var newobj = Object.Instantiate(satellitePrefab);
             newobj.name = "Generated Satellite " + sat.name;
             if (parent)
-                newobj.GetComponent<Transform>().parent = parent.GetComponent<Transform>();
-            newobj.GetComponent<Transform>().Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
-            var satComponent = newobj.GetComponent<PlanetComponent>();
+                newobj.transform.parent = parent.GetComponent<Transform>();
 
+            newobj.transform.Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
+
+            var satComponent = newobj.GetComponent<PlanetComponent>();
             satComponent.satellite = sat;
+
             var childCount = sat.children.Count;
             satComponent.children = new GameObject[childCount];
             for (var i = 0; i < childCount; ++i)

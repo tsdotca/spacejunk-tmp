@@ -81,7 +81,7 @@ namespace SpaceJunk.SolarSystem
         {
             int x = Random.Range(-(w / 2), w / 2);
             int y = Random.Range(-(h / 2), h / 2);
-            return new Offset { x, y };
+            return new Offset();
         }
     }
 
