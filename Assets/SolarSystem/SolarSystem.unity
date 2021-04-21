@@ -362,9 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e723acf8fb47452458daab62e2baf614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alternateButton: {fileID: 0}
-  cancelButton: {fileID: 0}
-  affirmButton: {fileID: 0}
 --- !u!1001 &545740840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1296,10 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082b559821b3f5a44b0e16ee2e6996bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 0}
-  planetPrefab: {fileID: 6920909261205443061, guid: 31306a508336af74fb810292a2c09817,
-    type: 3}
-  SSC: {fileID: 861959938}
+  SSC: {fileID: 861959940}
 --- !u!114 &950074573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,7 +1840,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: 503be185-bea2-47d7-97ca-a047cff92e7b
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 548193903}
 --- !u!1 &4012938125796128170 stripped

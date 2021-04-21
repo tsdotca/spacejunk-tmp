@@ -58,12 +58,12 @@ namespace SpaceJunk.SolarSystem
 
         public void OnClick()
         {
-            var x = Mouse.current.position.x.ReadValue();
-            var y = Mouse.current.position.y.ReadValue();
+            float x = Mouse.current.position.x.ReadValue();
+            float y = Mouse.current.position.y.ReadValue();
 
             var vect = mainCamera.ScreenToWorldPoint(new Vector3(x, y, 0));
-            var x2 = vect.x;
-            var y2 = vect.y;
+            float x2 = vect.x;
+            float y2 = vect.y;
             Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
 
             var planet = FindPlanetAtPoint(x2, y2);
