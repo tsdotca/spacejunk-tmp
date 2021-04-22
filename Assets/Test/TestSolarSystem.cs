@@ -7,13 +7,13 @@ namespace SpaceJunk.SolarSystem
 
     public class TestSolarSystem : MonoBehaviour
     {
-        public GameObject root;
-        public GameObject planetPrefab;
+        public SolarSystemController SSC;
 
-        public GameObject SSC;
+        public const int kSolarWidth = 1024;
+        public const int kSolarHeight = 768;
 
-        public const int kSolarWidth = 64;
-        public const int kSolarHeight = 64;
+        public const int kOffsetMax = 32;
+        public const int kOffsetMin = 16;
 
         const int kPlanetCount = 8;
 
@@ -22,41 +22,22 @@ namespace SpaceJunk.SolarSystem
             var rndState = GenerateRandomGameState();
 
             GameManager.GetInstance().state = rndState;
-            var comp = SSC.GetComponent<SolarSystemController>();
-            comp.TestHookThing(rndState);
-        }
-
-        /// <summary>
-        /// Generates a random Vector3 bounded by w, h, z=1
-        /// </summary>
-        public static Vector3 GenerateRandomObjectPosition(int w, int h)
-        {
-            int x = Random.Range(-(w / 2), w / 2);
-            int y = Random.Range(-(h / 2), h / 2);
-            return new Vector3(x, y, 1);
-        }
-
-        public static Offset GenerateSystemOffset(int w, int h)
-        {
-            int x = Random.Range(-(w / 2), w / 2);
-            int y = Random.Range(-(h / 2), h / 2);
-            return new Offset(x, y);
+            SSC.TestHookThing(rndState);
         }
 
         public static GameState GenerateRandomGameState()
         {
             GameState state = new GameState();
-            var rootSystem = GenerateRootSystem();
+            var rootSystem = new Satellite(
+                GameManager.GetSystemPlotName(),
+                GameManager.GetSystemDescription(),
+                null//ugh
+                );
+
             GenerateSolarSystem(rootSystem);
             state.rootSystem = rootSystem;
 
             return state;
-        }
-
-        public static Satellite GenerateRootSystem()
-        {
-            return new Satellite(GameManager.GetSystemPlotName(),
-                GameManager.GetSystemDescription());
         }
 
         // TODO: remove in-out param
@@ -73,9 +54,10 @@ namespace SpaceJunk.SolarSystem
         {
             var sat = new Satellite(
                 GenerateRandomPlanetName(),
-                GenerateRandomPlanetDescription()
+                GenerateRandomPlanetDescription(),
+                GenerateRandomCoordinates()
                 );
-            sat.orbit.offset = GenerateSystemOffset(kSolarWidth, kSolarHeight);
+            sat.orbit.offset = GenerateSystemOffset(kOffsetMin, kOffsetMax);
             return sat;
         }
 
@@ -91,6 +73,13 @@ namespace SpaceJunk.SolarSystem
         public static string GenerateRandomPlanetDescription()
         {
             return "this is a description";
+        }
+
+        public static Vector3 GenerateRandomCoordinates()
+        {
+            int x = Random.Range(0, kSolarWidth);
+            int y = Random.Range(0, kSolarHeight);
+            return new Vector3(x, y, 1);
         }
     }
 

@@ -39,11 +39,13 @@ namespace SpaceJunk.SolarSystem
             var newobj = Object.Instantiate(satellitePrefab);
             newobj.name = "Generated Satellite " + sat.name;
             if (parent)
-                newobj.GetComponent<Transform>().parent = parent.GetComponent<Transform>();
-            newobj.GetComponent<Transform>().Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
-            var satComponent = newobj.GetComponent<PlanetComponent>();
+                newobj.transform.parent = parent.GetComponent<Transform>();
 
+            newobj.transform.Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
+
+            var satComponent = newobj.GetComponent<PlanetComponent>();
             satComponent.satellite = sat;
+
             var childCount = sat.children.Count;
             satComponent.children = new GameObject[childCount];
             for (var i = 0; i < childCount; ++i)
@@ -56,12 +58,12 @@ namespace SpaceJunk.SolarSystem
 
         public void OnClick()
         {
-            var x = Mouse.current.position.x.ReadValue();
-            var y = Mouse.current.position.y.ReadValue();
+            float x = Mouse.current.position.x.ReadValue();
+            float y = Mouse.current.position.y.ReadValue();
 
             var vect = mainCamera.ScreenToWorldPoint(new Vector3(x, y, 0));
-            var x2 = vect.x;
-            var y2 = vect.y;
+            float x2 = vect.x;
+            float y2 = vect.y;
             Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
 
             var planet = FindPlanetAtPoint(x2, y2);
