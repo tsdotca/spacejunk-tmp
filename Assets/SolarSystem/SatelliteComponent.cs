@@ -4,7 +4,7 @@ using SpaceJunk.Core;
 
 namespace SpaceJunk.SolarSystem
 {
-    public class PlanetComponent : MonoBehaviour
+    public class SatelliteComponent : MonoBehaviour
     {
         public Satellite satellite;
         // TODO code duplication for Satellite children

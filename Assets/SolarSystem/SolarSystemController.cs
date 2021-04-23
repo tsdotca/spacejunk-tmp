@@ -43,7 +43,7 @@ namespace SpaceJunk.SolarSystem
 
             newobj.transform.Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
 
-            var satComponent = newobj.GetComponent<PlanetComponent>();
+            var satComponent = newobj.GetComponent<SatelliteComponent>();
             satComponent.satellite = sat;
 
             var childCount = sat.children.Count;
@@ -73,7 +73,7 @@ namespace SpaceJunk.SolarSystem
                 sidePanelController.ClearSelection();
         }
 
-        protected PlanetComponent FindPlanetAtPoint(float x, float y)
+        protected SatelliteComponent FindPlanetAtPoint(float x, float y)
         {
             var contactFilter = new ContactFilter2D();
             contactFilter.SetLayerMask(GameManager.GetSelectableLayerMask());
@@ -98,7 +98,7 @@ namespace SpaceJunk.SolarSystem
                     return null;
                 }
 
-                var sat = gameobj.GetComponent<PlanetComponent>();
+                var sat = gameobj.GetComponent<SatelliteComponent>();
                 return sat;
             }
 

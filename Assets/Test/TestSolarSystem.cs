@@ -31,7 +31,7 @@ namespace SpaceJunk.SolarSystem
             var rootSystem = new Satellite(
                 GameManager.GetSystemPlotName(),
                 GameManager.GetSystemDescription(),
-                null//ugh
+                new Offset(0, 0)
                 );
 
             GenerateSolarSystem(rootSystem);
@@ -55,9 +55,8 @@ namespace SpaceJunk.SolarSystem
             var sat = new Satellite(
                 GenerateRandomPlanetName(),
                 GenerateRandomPlanetDescription(),
-                GenerateRandomCoordinates()
+                GenerateSystemOffset()
                 );
-            sat.orbit.offset = GenerateSystemOffset(kOffsetMin, kOffsetMax);
             return sat;
         }
 
@@ -75,11 +74,12 @@ namespace SpaceJunk.SolarSystem
             return "this is a description";
         }
 
-        public static Vector3 GenerateRandomCoordinates()
+        public static Offset GenerateSystemOffset()
         {
-            int x = Random.Range(0, kSolarWidth);
-            int y = Random.Range(0, kSolarHeight);
-            return new Vector3(x, y, 1);
+            return new Offset(
+                Random.Range(0, kSolarWidth),
+                Random.Range(0, kSolarHeight)
+            );
         }
     }
 

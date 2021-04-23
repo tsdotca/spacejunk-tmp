@@ -48,7 +48,7 @@ namespace SpaceJunk.UI
             this.mainActionButtonsPanel.SetActive(false);
         }
 
-        public void SelectPlanet(PlanetComponent o)
+        public void SelectPlanet(SatelliteComponent o)
         {
             contextInfoPanel.SetActive(true);
             descriptionLabelText.GetComponent<Text>().text = o.satellite.description;
