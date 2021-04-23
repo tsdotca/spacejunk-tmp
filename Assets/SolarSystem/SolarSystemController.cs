@@ -102,7 +102,6 @@ namespace SpaceJunk.SolarSystem
                 return sat;
             }
 
-            Debug.Log("nothing found");
             return null;
         }
     }
