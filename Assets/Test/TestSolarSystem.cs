@@ -12,9 +12,6 @@ namespace SpaceJunk.SolarSystem
         public const int kSolarWidth = 1024;
         public const int kSolarHeight = 768;
 
-        public const int kOffsetMax = 32;
-        public const int kOffsetMin = 16;
-
         const int kPlanetCount = 8;
 
         void Start()
@@ -31,7 +28,7 @@ namespace SpaceJunk.SolarSystem
             var rootSystem = new Satellite(
                 GameManager.GetSystemPlotName(),
                 GameManager.GetSystemDescription(),
-                new Offset(0, 0)
+                new Orbit(0, 0)
                 );
 
             GenerateSolarSystem(rootSystem);
@@ -48,7 +45,7 @@ namespace SpaceJunk.SolarSystem
                 var rndplanet = new Satellite(
                     GenerateRandomPlanetName(),
                     GenerateRandomPlanetDescription(),
-                    GenerateSystemOffset()
+                    GenerateSystemOrbit()
                 );
                 root.children.Add(rndplanet);
             }
@@ -68,9 +65,9 @@ namespace SpaceJunk.SolarSystem
             return "this is a description";
         }
 
-        public static Offset GenerateSystemOffset()
+        public static Orbit GenerateSystemOrbit()
         {
-            return new Offset(
+            return new Orbit(
                 Random.Range(0, kSolarWidth),
                 Random.Range(0, kSolarHeight)
             );

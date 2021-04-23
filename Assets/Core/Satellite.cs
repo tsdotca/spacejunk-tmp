@@ -2,54 +2,34 @@
 
 namespace SpaceJunk.Core
 {
-    public struct Offset
+
+    public struct Orbit
     {
         public int x;
         public int y;
+        //public int a;
+        //public int b;
 
-        public Offset(int x, int y)
+        public Orbit(int x, int y)
         {
             this.x = x;
             this.y = y;
         }
     }
 
-    public class Orbit
-    {
-        public enum OrbitType
-        {
-            Fixed,
-            Elliptical,
-        }
-
-        public OrbitType orbitType = OrbitType.Fixed;
-        public Offset offset;
-
-        public Orbit(Offset offset)
-        {
-            this.offset = offset;
-        }
-    }
-
-    /// <summary>
-    /// A celestial body that orbits another celestial body, be it artificial or natural.
-    /// </summary>
-    /// <remarks>
-    /// Satellites have an Orbit and an offset. The Orbit determines if and how the body moves relative to its parent Satellite. The offset affects where the body is placed either in a fixed position relative to its parent or along its Orbit.
-    /// </remarks>
     public class Satellite
     {
         public string name;
         public string description;
-        public List<Satellite> children;
         public Orbit orbit;
+        public List<Satellite> children;
 
-        public Satellite(string name, string description, Offset offset)
+        public Satellite(string name, string description, Orbit orbit)
         {
             this.name = name;
             this.description = description;
+            this.orbit = orbit;
             children = new List<Satellite>(8);
-            orbit = new Orbit(offset);
         }
     }
 }

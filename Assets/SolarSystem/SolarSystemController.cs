@@ -41,7 +41,7 @@ namespace SpaceJunk.SolarSystem
             if (parent)
                 newobj.transform.parent = parent.GetComponent<Transform>();
 
-            newobj.transform.Translate(sat.orbit.offset.x, sat.orbit.offset.y, 0f);
+            newobj.transform.Translate(sat.orbit.x, sat.orbit.y, 0f);
 
             var satComponent = newobj.GetComponent<SatelliteComponent>();
             satComponent.satellite = sat;
