@@ -45,19 +45,13 @@ namespace SpaceJunk.SolarSystem
         {
             for (int i = 0; i < kPlanetCount; ++i)
             {
-                var rndplanet = GenerateRandomPlanet();
+                var rndplanet = new Satellite(
+                    GenerateRandomPlanetName(),
+                    GenerateRandomPlanetDescription(),
+                    GenerateSystemOffset()
+                );
                 root.children.Add(rndplanet);
             }
-        }
-
-        public static Satellite GenerateRandomPlanet()
-        {
-            var sat = new Satellite(
-                GenerateRandomPlanetName(),
-                GenerateRandomPlanetDescription(),
-                GenerateSystemOffset()
-                );
-            return sat;
         }
 
         public static string GenerateRandomPlanetName()
