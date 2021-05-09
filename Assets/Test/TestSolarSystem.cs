@@ -68,8 +68,8 @@ namespace SpaceJunk.SolarSystem
         public static Orbit GenerateSystemOrbit()
         {
             return new Orbit(
-                Random.Range(0, kSolarWidth),
-                Random.Range(0, kSolarHeight)
+                Random.Range(-kSolarWidth/2, kSolarWidth/2),
+                Random.Range(-kSolarHeight/2, kSolarHeight/2)
             );
         }
     }
