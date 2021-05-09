@@ -37,7 +37,7 @@ namespace SpaceJunk.SolarSystem
         protected GameObject GenerateSolarSystemHelper(GameObject parent, Satellite sat)
         {
             var newobj = Object.Instantiate(satellitePrefab);
-            newobj.name = "Generated Satellite " + sat.name;
+            newobj.name = sat.name;
             if (parent)
                 newobj.transform.parent = parent.GetComponent<Transform>();
 
