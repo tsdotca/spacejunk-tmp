@@ -1,19 +1,11 @@
-﻿using UnityEngine.SceneManagement;
-
-namespace SpaceJunk.Core
+﻿namespace SpaceJunk.Core
 {
-    public class SaveGame
-    {
-        public string name = "<save game>";
-    }
-
     /// <summary>
     /// here is the gross god class until things can be refactored
     /// </summary>
     public class GameManager
     {
         protected static GameManager _instance;
-        //private static List<SaveGame> _saveGames;
 
         // TODO make protected and set up proper workflow
         public GameState state;
@@ -28,7 +20,6 @@ namespace SpaceJunk.Core
         public static void CreateFirstInstance()
         {
             CreateInstance();
-            _instance.Reset();
         }
 
         public static void CreateInstance()
@@ -41,7 +32,6 @@ namespace SpaceJunk.Core
 
         public void LoadDefaults()
         {
-            Reset();
             // TODO open universal preferences
             LoadSaveGames();
         }
@@ -49,15 +39,6 @@ namespace SpaceJunk.Core
         public static void LoadSaveGames()
         {
 
-        }
-
-        public void Reset()
-        {
-        }
-
-        public void ChangeToScene(string sceneName)
-        {
-            SceneManager.LoadScene(sceneName);
         }
 
         /// <summary>

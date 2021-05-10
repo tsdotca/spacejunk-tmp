@@ -30,6 +30,8 @@ namespace SpaceJunk.UI
 
         void Start()
         {
+            GameManager.CreateFirstInstance();
+            GameManager.GetInstance().LoadDefaults();
             DebugDisable();  // TODO once we get save games and stuff
         }
 
@@ -78,7 +80,7 @@ namespace SpaceJunk.UI
 
         public void OnStartGame()
         {
-            GameManager.GetInstance().ChangeToScene("SolarSystem");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SolarSystem");
         }
 
         #endregion
