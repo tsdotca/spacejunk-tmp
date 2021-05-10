@@ -64,7 +64,7 @@ namespace SpaceJunk.SolarSystem
             var vect = mainCamera.ScreenToWorldPoint(new Vector3(x, y, 0));
             float x2 = vect.x;
             float y2 = vect.y;
-            Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
+            //Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
 
             var planet = FindPlanetAtPoint(x2, y2);
             if (planet)
