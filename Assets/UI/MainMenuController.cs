@@ -9,14 +9,16 @@ using SpaceJunk.Core;
 
 namespace SpaceJunk.UI
 {
-
     public class MainMenuController : MonoBehaviour
     {
         public GameObject newGameDialog;
         public GameObject optionsDialog;
 
         public Button continueButton;
+        public Button newGameButton;
         public Button loadGameButton;
+        public Button optionsButton;
+        public Button quitButton;
 
         [Flags]
         public enum OptionalButtons
@@ -32,18 +34,21 @@ namespace SpaceJunk.UI
         {
             GameManager.CreateFirstInstance();
             GameManager.GetInstance().LoadDefaults();
-            DebugDisable();  // TODO once we get save games and stuff
-        }
 
-        public void DebugDisable()
-        {
+            // TODO once we get save games
             continueButton.interactable = false;
             loadGameButton.interactable = false;
+
+            continueButton.onClick.AddListener(OnContinue);
+            newGameButton.onClick.AddListener(OnNewGame);
+            loadGameButton.onClick.AddListener(OnLoadGame);
+            optionsButton.onClick.AddListener(OnOptions);
+            quitButton.onClick.AddListener(OnQuit);
         }
 
         #region Main menu handlers
 
-        public void OnContinueGame()
+        public void OnContinue()
         {
             print("i am bender please insert girder");
         }
@@ -61,11 +66,12 @@ namespace SpaceJunk.UI
 
         public void OnOptions()
         {
+            print("options");
         }
 
-        public void OnQuitGame()
+        public void OnQuit()
         {
-            Debug.Log("goodbye");
+            print("goodbye");
             Application.Quit();
         }
 
