@@ -15,7 +15,6 @@ namespace SpaceJunk.SolarSystem
         public Sprite rootSprite;  // FIXME do we really have to hook this up in the editor?
 
         protected GameObject rootSat;  // TODO better name
-        protected GameObject currentSelected = null;
 
         public void TestHookThing(GameState gameState)
         {
@@ -40,6 +39,7 @@ namespace SpaceJunk.SolarSystem
                 newobj.transform.parent = parent.GetComponent<Transform>();
 
             newobj.transform.Translate(sat.orbit.x, sat.orbit.y, 0f);
+            newobj.transform.localScale = new Vector3(4, 4, 1);
 
             var satComponent = newobj.GetComponent<SatelliteComponent>();
             satComponent.satellite = sat;

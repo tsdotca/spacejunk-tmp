@@ -4,7 +4,6 @@ using SpaceJunk.Core;
 
 namespace SpaceJunk.SolarSystem
 {
-
     public class TestSolarSystem : MonoBehaviour
     {
         public SolarSystemController SSC;
