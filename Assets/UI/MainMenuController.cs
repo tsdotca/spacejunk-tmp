@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 using SpaceJunk.Core;
@@ -46,8 +47,6 @@ namespace SpaceJunk.UI
             quitButton.onClick.AddListener(OnQuit);
         }
 
-        #region Main menu handlers
-
         public void OnContinue()
         {
             print("i am bender please insert girder");
@@ -55,8 +54,7 @@ namespace SpaceJunk.UI
 
         public void OnNewGame()
         {
-            print("new game");
-            newGameDialog.SetActive(true);
+            SceneManager.LoadScene("SolarSystem");
         }
 
         public void OnLoadGame()
@@ -74,22 +72,5 @@ namespace SpaceJunk.UI
             print("goodbye");
             Application.Quit();
         }
-
-        #endregion
-
-        #region New game dialog handlers
-
-        public void OnNewGameBack()
-        {
-            newGameDialog.SetActive(false);
-        }
-
-        public void OnStartGame()
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("SolarSystem");
-        }
-
-        #endregion
     }
-
 }
