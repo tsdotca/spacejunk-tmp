@@ -9,7 +9,6 @@ namespace SpaceJunk.SolarSystem
     public class SolarSystemController : MonoBehaviour
     {
         public Camera mainCamera;
-        public SidePanelController sidePanelController;
         public TopMenubarController topBarController;
 
         public GameObject satellitePrefab;
@@ -21,7 +20,6 @@ namespace SpaceJunk.SolarSystem
         public void TestHookThing(GameState gameState)
         {
             rootSat = GenerateSolarSystemFromPlanetRoot(gameState.rootSystem);
-            sidePanelController.RefreshSidePanel();
             topBarController.UpdateGameStatus(gameState);
         }
 
@@ -68,9 +66,9 @@ namespace SpaceJunk.SolarSystem
 
             var planet = FindPlanetAtPoint(x2, y2);
             if (planet)
-                sidePanelController.SelectPlanet(planet);
+                print("i found a planet! should select in side panel");
             else
-                sidePanelController.ClearSelection();
+                print("oops nothing");
         }
 
         protected SatelliteComponent FindPlanetAtPoint(float x, float y)
