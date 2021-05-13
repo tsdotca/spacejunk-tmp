@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 using SpaceJunk.Core;
 using SpaceJunk.UI;
@@ -10,11 +11,16 @@ namespace SpaceJunk.SolarSystem
     {
         public Camera mainCamera;
         public TopMenubarController topBarController;
+        public InfoPanelController infoPanelController;
 
         public GameObject satellitePrefab;
         public Sprite rootSprite;  // FIXME do we really have to hook this up in the editor?
 
         protected GameObject rootSat;  // TODO better name
+
+        private void Start()
+        {
+        }
 
         public void TestHookThing(GameState gameState)
         {
@@ -54,21 +60,29 @@ namespace SpaceJunk.SolarSystem
             return newobj;
         }
 
-        public void OnClick()
+        public void OnClick(CallbackContext ctx)
         {
+            if (ctx.phase != InputActionPhase.Performed)
+                return;
+
             float x = Mouse.current.position.x.ReadValue();
             float y = Mouse.current.position.y.ReadValue();
 
             var vect = mainCamera.ScreenToWorldPoint(new Vector3(x, y, 0));
             float x2 = vect.x;
             float y2 = vect.y;
-            //Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
+            Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
 
             var planet = FindPlanetAtPoint(x2, y2);
             if (planet)
-                print("i found a planet! should select in side panel");
+            {
+                infoPanelController.Select(planet.satellite);
+            }
             else
+            {
                 print("oops nothing");
+                infoPanelController.Disable();
+            }
         }
 
         protected SatelliteComponent FindPlanetAtPoint(float x, float y)
