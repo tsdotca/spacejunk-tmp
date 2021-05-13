@@ -21,7 +21,7 @@ namespace SpaceJunk.UI
             infoPanel.SetActive(true);
         }
 
-        public void Disable()
+        public void DisableWidget()
         {
             infoPanel.SetActive(false);
         }

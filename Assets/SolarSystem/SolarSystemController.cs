@@ -80,8 +80,7 @@ namespace SpaceJunk.SolarSystem
             }
             else
             {
-                print("oops nothing");
-                infoPanelController.Disable();
+                infoPanelController.DisableWidget();
             }
         }
 
