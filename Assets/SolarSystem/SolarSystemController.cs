@@ -65,15 +65,11 @@ namespace SpaceJunk.SolarSystem
             if (ctx.phase != InputActionPhase.Performed)
                 return;
 
-            float x = Mouse.current.position.x.ReadValue();
-            float y = Mouse.current.position.y.ReadValue();
+            var mousePos = Mouse.current.position.ReadValue();
+            var worldPos = mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0));
+            Debug.Log($"OnClick mouse=({mousePos.x}, {mousePos.y}), world=({worldPos.x}, {worldPos.y})");
 
-            var vect = mainCamera.ScreenToWorldPoint(new Vector3(x, y, 0));
-            float x2 = vect.x;
-            float y2 = vect.y;
-            Debug.Log($"OnClick mouse=({x}, {y}), screen=({x2}, {y2})");
-
-            var planet = FindPlanetAtPoint(x2, y2);
+            var planet = FindPlanetAtPoint(worldPos.x, worldPos.y);
             if (planet)
             {
                 infoPanelController.Select(planet.satellite);
