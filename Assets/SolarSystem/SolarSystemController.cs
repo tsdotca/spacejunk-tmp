@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -62,7 +63,7 @@ namespace SpaceJunk.SolarSystem
 
         public void OnClick(CallbackContext ctx)
         {
-            if (ctx.phase != InputActionPhase.Performed)
+            if (ctx.phase != InputActionPhase.Performed && !EventSystem.current.IsPointerOverGameObject())
                 return;
 
             var mousePos = Mouse.current.position.ReadValue();

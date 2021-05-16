@@ -33,6 +33,8 @@ namespace SpaceJunk.UI
         void Start()
         {
             currentPalette = new StatusTextPalette();
+            fleetStatusButton.onClick.AddListener(OnFleetStatus);
+            pendingTasksButton.onClick.AddListener(OnPendingTasks);
         }
 
         public void OnMainMenu()
@@ -42,12 +44,12 @@ namespace SpaceJunk.UI
 
         public void OnFleetStatus()
         {
-            fleetStatusDialog.SetActive(true);
+            WindowManager.RaiseDialog(fleetStatusDialog);
         }
 
         public void OnPendingTasks()
         {
-            pendingTasksDialog.SetActive(true);
+            WindowManager.RaiseDialog(pendingTasksDialog);
         }
 
         /// <summary>
