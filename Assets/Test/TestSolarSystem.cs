@@ -11,7 +11,7 @@ namespace SpaceJunk.SolarSystem
         public const int kSolarWidth = 1024;
         public const int kSolarHeight = 768;
 
-        const int kPlanetCount = 8;
+        const int kPlanetCount = 2;
 
         void Start()
         {
